@@ -1,10 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.example.vs_forge_template.mixin",
+  "package": "io.github.techtastic.oc2rcreate.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "vs_forge_template.refmap.json",
   "mixins": [
+    "MixinDisplayLinkBlockEntity"
   ],
   "client": [
   ],
