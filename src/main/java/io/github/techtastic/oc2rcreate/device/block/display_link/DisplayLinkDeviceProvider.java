@@ -5,6 +5,7 @@ import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceQuery;
 import li.cil.oc2.api.util.Invalidatable;
+import li.cil.oc2.common.bus.device.vm.block.DiskDriveDevice;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.LevelAccessor;
@@ -19,7 +20,7 @@ public class DisplayLinkDeviceProvider implements BlockDeviceProvider {
         BlockEntity be = level.getBlockEntity(pos);
         if (!(be instanceof DisplayLinkBlockEntity link))
             return Invalidatable.empty();
-
+        return Invalidatable.of(new DisplayLinkDevice(link));
     }
 
     @Override

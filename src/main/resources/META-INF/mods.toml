@@ -56,11 +56,11 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId="create"
-mandatory=true
-versionRange="[6.0.6,6.1.0)"
-ordering="NONE"
-side="BOTH"
+modId = "create"
+mandatory = true
+versionRange = "[6.0.6,6.1.0)"
+ordering = "AFTER"
+side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "oc2r"
