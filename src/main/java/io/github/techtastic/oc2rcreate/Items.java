@@ -12,7 +12,7 @@ public class Items {
             DeferredRegister.create(ForgeRegistries.ITEMS, OC2RCreate.MODID);
 
     public static final RegistryObject<Item> REDSTONE_LINK_CARD =
-            ITEMS.register("redstone_link_card", ModItem::new);
+            ITEMS.register("redstone_link_card", () -> new ModItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
