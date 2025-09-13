@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "create:display_link"
+    "create:display_link",
+    "create:frogport",
+    "create:packager"
   ]
 }

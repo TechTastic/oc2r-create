@@ -64,20 +64,6 @@ public class FrogportDevice implements RPCDevice, Device {
                 + "\" Possible configurations are: \"send_receive\" and \"send\".");
     }
 
-    @Callback
-    public List<ItemStack> list() {
-        NonNullList<ItemStack> list = NonNullList.createWithCapacity(this.frogport.inventory.getContainerSize());
-        for (int i = 0; i < this.frogport.inventory.getContainerSize(); i++) {
-            list.set(i + 1, this.frogport.inventory.getItem(i));
-        }
-        return list;
-    }
-
-    @Callback
-    public ItemStack getItem(@Parameter("slot") int slot) {
-        return this.frogport.inventory.getItem(slot);
-    }
-
     @Override
     public @NotNull List<String> getTypeNames() {
         return this.device.getTypeNames();

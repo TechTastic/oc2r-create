@@ -1,7 +1,7 @@
 package io.github.techtastic.oc2rcreate;
 
 import io.github.techtastic.oc2rcreate.device.block.display_link.DisplayLinkDeviceProvider;
-import io.github.techtastic.oc2rcreate.device.block.frogport.FrogportDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.block.packager.PackagerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.ItemDeviceProvider;
@@ -19,7 +19,7 @@ public class Providers {
     public static final RegistryObject<BlockDeviceProvider> DISPLAY_LINK =
             BLOCK_PROVIDERS.register("display_link", DisplayLinkDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> FROGPORT =
-            BLOCK_PROVIDERS.register("frogport", FrogportDeviceProvider::new);
+            BLOCK_PROVIDERS.register("frogport", PackagerDeviceProvider::new);
 
     public static final RegistryObject<ItemDeviceProvider> REDSTONE_LINK =
             ITEM_PROVIDERS.register("redstone_link", RedstoneLinkDeviceProvider::new);
