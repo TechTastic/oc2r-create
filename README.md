@@ -3,6 +3,19 @@
 This addon is meant ot be a bridge between OpenComputers 2: Reimagined and Create!
 
 To Do:
-- Recreate existing CC: Tweaked peripherasl as OC2R Devices
+- Recreate existing CC: Tweaked peripherals as OC2R Devices
+  - [X] Display Link
+  - [X] Frogport
+  - [ ] Packager
+  - [ ] Postbox
+  - [ ] Redstone Requester
+  - [ ] Repackager
+  - [ ] Sequenced Gearshift
+  - [ ] Speed Controller
+  - [ ] Speed Gauge
+  - [ ] Train Station
+  - [ ] Stock Ticker
+  - [ ] Stress Gauge
+  - [ ] Table Cloth Shop
 - Add new OC2R-specific compat
-  - Redstone Link Card
+  - [X] Redstone Link Card
