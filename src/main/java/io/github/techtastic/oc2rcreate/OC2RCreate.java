@@ -30,6 +30,7 @@ public class OC2RCreate {
 
         Items.register(modEventBus);
         Providers.register(modEventBus);
+        DisplaySources.register(modEventBus);
     }
 
     private void addLinksToNetwork(TickEvent.LevelTickEvent event) {
