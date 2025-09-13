@@ -3,9 +3,8 @@
   "minVersion": "0.8",
   "package": "io.github.techtastic.oc2rcreate.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "vs_forge_template.refmap.json",
+  "refmap": "oc2rcreate.refmap.json",
   "mixins": [
-    "MixinDisplayLinkBlockEntity"
   ],
   "client": [
   ],
