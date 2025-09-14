@@ -31,14 +31,14 @@ public class RedstoneRequesterDevice extends AbstractBlockRPCDevice {
     }
 
     @Callback
-    public final void setRequest(@Parameter("items...") Object... obj) {
+    public final void setRequest(@Parameter("items") Object... obj) {
         List<BigItemStack> orderStacks = generateOrder(obj);
         this.requester.encodedRequest = PackageOrderWithCrafts.simple(orderStacks);
         this.requester.notifyUpdate();
     }
 
     @Callback
-    public final void setCraftingRequest(@Parameter("count") int count, @Parameter("items...") Object... obj) {
+    public final void setCraftingRequest(@Parameter("count") int count, @Parameter("items") Object... obj) {
         List<BigItemStack> orderStacks = generateOrder(obj);
 
         PackageOrder order = new PackageOrder(orderStacks);

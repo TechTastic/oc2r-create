@@ -6,6 +6,7 @@
     "create:packager",
     "create:package_postbox",
     "create:redstone_requester",
-    "create:repackager"
+    "create:repackager",
+    "create:sequenced_gearshift"
   ]
 }
