@@ -9,6 +9,8 @@ import io.github.techtastic.oc2rcreate.device.block.repackager.RepackagerDeviceP
 import io.github.techtastic.oc2rcreate.device.block.sequenced_gearshift.SequencedGearshiftDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.speed_controller.SpeedControllerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.speedometer.SpeedometerDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.block.stock_ticker.StockTickerDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.block.stressometer.StressometerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.train_station.TrainStationDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceProvider;
@@ -44,6 +46,10 @@ public class Providers {
             BLOCK_PROVIDERS.register("speedometer", SpeedometerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> TRAIN_STATION =
             BLOCK_PROVIDERS.register("station", TrainStationDeviceProvider::new);
+    public static final RegistryObject<BlockDeviceProvider> STOCK_LINKER =
+            BLOCK_PROVIDERS.register("station", StockTickerDeviceProvider::new);
+    public static final RegistryObject<BlockDeviceProvider> STRESSOMETER =
+            BLOCK_PROVIDERS.register("station", StressometerDeviceProvider::new);
 
     public static final RegistryObject<ItemDeviceProvider> REDSTONE_LINK =
             ITEM_PROVIDERS.register("redstone_link", RedstoneLinkDeviceProvider::new);

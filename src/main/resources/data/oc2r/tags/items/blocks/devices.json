@@ -11,6 +11,7 @@
     "create:rotation_speed_controller",
     "create:speedometer",
     "create:track_station",
-    "create:stock_ticker"
+    "create:stock_ticker",
+    "create:stressometer"
   ]
 }
