@@ -7,6 +7,7 @@ import io.github.techtastic.oc2rcreate.device.block.postbox.PostboxDeviceProvide
 import io.github.techtastic.oc2rcreate.device.block.redstone_requester.RedstoneRequesterDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.repackager.RepackagerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.sequenced_gearshift.SequencedGearshiftDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.block.speed_controller.SpeedControllerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceProvider;
 import li.cil.oc2.api.bus.device.provider.ItemDeviceProvider;
@@ -35,6 +36,8 @@ public class Providers {
             BLOCK_PROVIDERS.register("repackager", RepackagerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> SEQUENCED_GEARSHIFT =
             BLOCK_PROVIDERS.register("sequenced_gearshift", SequencedGearshiftDeviceProvider::new);
+    public static final RegistryObject<BlockDeviceProvider> SPEED_CONTROLLER =
+            BLOCK_PROVIDERS.register("rotation_speed_controller", SpeedControllerDeviceProvider::new);
 
     public static final RegistryObject<ItemDeviceProvider> REDSTONE_LINK =
             ITEM_PROVIDERS.register("redstone_link", RedstoneLinkDeviceProvider::new);

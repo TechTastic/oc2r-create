@@ -7,6 +7,7 @@
     "create:package_postbox",
     "create:redstone_requester",
     "create:repackager",
-    "create:sequenced_gearshift"
+    "create:sequenced_gearshift",
+    "create:rotation_speed_controller"
   ]
 }
