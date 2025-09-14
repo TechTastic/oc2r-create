@@ -4,6 +4,7 @@
     "create:display_link",
     "create:package_frogport",
     "create:packager",
-    "create:package_postbox"
+    "create:package_postbox",
+    "create:redstone_requester"
   ]
 }
