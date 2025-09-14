@@ -2,7 +2,8 @@
   "replace": false,
   "values": [
     "create:display_link",
-    "create:frogport",
-    "create:packager"
+    "create:package_frogport",
+    "create:packager",
+    "create:package_postbox"
   ]
 }

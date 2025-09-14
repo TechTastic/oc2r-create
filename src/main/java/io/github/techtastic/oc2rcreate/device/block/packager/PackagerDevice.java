@@ -48,7 +48,7 @@ public class PackagerDevice implements RPCDevice, Device {
         method.setAccessible(true);
         method.invoke(this.packager);
 
-        return packager.signBasedAddress;
+        return this.packager.signBasedAddress;
     }
 
     // Package Methods
