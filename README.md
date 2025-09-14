@@ -6,16 +6,16 @@ To Do:
 - Recreate existing CC: Tweaked peripherals as OC2R Devices
   - [X] Display Link
   - [X] Frogport
-  - [ ] Packager
-  - [ ] Postbox
-  - [ ] Redstone Requester
-  - [ ] Repackager
-  - [ ] Sequenced Gearshift
-  - [ ] Speed Controller
-  - [ ] Speed Gauge
-  - [ ] Train Station
-  - [ ] Stock Ticker
-  - [ ] Stress Gauge
-  - [ ] Table Cloth Shop
+  - [X] Packager
+  - [X] Postbox
+  - [X] Redstone Requester
+  - [X] Repackager
+  - [X] Sequenced Gearshift
+  - [X] Speed Controller
+  - [X] Speed Gauge
+  - [X] Train Station
+  - [X] Stock Ticker
+  - [X] Stress Gauge
+  - [X] Table Cloth Shop
 - Add new OC2R-specific compat
   - [X] Redstone Link Card
