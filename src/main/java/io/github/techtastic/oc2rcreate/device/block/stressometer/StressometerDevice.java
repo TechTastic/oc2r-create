@@ -1,6 +1,5 @@
 package io.github.techtastic.oc2rcreate.device.block.stressometer;
 
-import com.simibubi.create.content.kinetics.gauge.SpeedGaugeBlockEntity;
 import com.simibubi.create.content.kinetics.gauge.StressGaugeBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;

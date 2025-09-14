@@ -12,6 +12,7 @@
     "create:speedometer",
     "create:track_station",
     "create:stock_ticker",
-    "create:stressometer"
+    "create:stressometer",
+    "#create:table_cloths"
   ]
 }
