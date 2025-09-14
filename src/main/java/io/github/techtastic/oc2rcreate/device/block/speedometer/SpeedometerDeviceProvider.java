@@ -2,7 +2,6 @@ package io.github.techtastic.oc2rcreate.device.block.speedometer;
 
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.content.kinetics.gauge.SpeedGaugeBlockEntity;
-import com.simibubi.create.content.kinetics.speedController.SpeedControllerBlockEntity;
 import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceQuery;
 import li.cil.oc2.api.util.Invalidatable;

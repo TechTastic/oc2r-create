@@ -2,7 +2,6 @@ package io.github.techtastic.oc2rcreate.device.block.speed_controller;
 
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.content.kinetics.speedController.SpeedControllerBlockEntity;
-import com.simibubi.create.content.kinetics.transmission.sequencer.SequencedGearshiftBlockEntity;
 import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceQuery;
 import li.cil.oc2.api.util.Invalidatable;

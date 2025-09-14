@@ -1,10 +1,6 @@
 package io.github.techtastic.oc2rcreate.device.block.speed_controller;
 
 import com.simibubi.create.content.kinetics.speedController.SpeedControllerBlockEntity;
-import com.simibubi.create.content.kinetics.transmission.sequencer.Instruction;
-import com.simibubi.create.content.kinetics.transmission.sequencer.InstructionSpeedModifiers;
-import com.simibubi.create.content.kinetics.transmission.sequencer.SequencedGearshiftBlockEntity;
-import com.simibubi.create.content.kinetics.transmission.sequencer.SequencerInstructions;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.Parameter;
