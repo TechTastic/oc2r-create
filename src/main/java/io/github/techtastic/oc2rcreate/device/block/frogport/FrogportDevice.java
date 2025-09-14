@@ -1,25 +1,15 @@
 package io.github.techtastic.oc2rcreate.device.block.frogport;
 
 import com.simibubi.create.content.logistics.packagePort.frogport.FrogportBlockEntity;
-import li.cil.oc2.api.bus.device.Device;
+import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
-import li.cil.oc2.api.bus.device.object.ObjectDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
-import li.cil.oc2.api.bus.device.rpc.RPCDevice;
-import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
-public class FrogportDevice implements RPCDevice, Device {
-    private final ObjectDevice device;
-
+public class FrogportDevice  extends AbstractBlockRPCDevice {
     private final FrogportBlockEntity frogport;
 
     public FrogportDevice(FrogportBlockEntity frogport) {
-        this.device = new ObjectDevice(this, "frogport");
+        super("frogport");
         this.frogport = frogport;
     }
 
@@ -62,15 +52,5 @@ public class FrogportDevice implements RPCDevice, Device {
         }
         throw new IllegalArgumentException("Unknown configuration: \"" + config
                 + "\" Possible configurations are: \"send_receive\" and \"send\".");
-    }
-
-    @Override
-    public @NotNull List<String> getTypeNames() {
-        return this.device.getTypeNames();
-    }
-
-    @Override
-    public @NotNull List<RPCMethodGroup> getMethodGroups() {
-        return this.device.getMethodGroups();
     }
 }

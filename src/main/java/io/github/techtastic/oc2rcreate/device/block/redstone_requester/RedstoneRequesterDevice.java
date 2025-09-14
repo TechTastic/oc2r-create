@@ -5,34 +5,23 @@ import com.simibubi.create.content.logistics.BigItemStack;
 import com.simibubi.create.content.logistics.redstoneRequester.RedstoneRequesterBlockEntity;
 import com.simibubi.create.content.logistics.stockTicker.PackageOrder;
 import com.simibubi.create.content.logistics.stockTicker.PackageOrderWithCrafts;
-import io.github.techtastic.oc2rcreate.OC2RCreate;
-import li.cil.oc2.api.bus.device.Device;
+import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
-import li.cil.oc2.api.bus.device.object.ObjectDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
-import li.cil.oc2.api.bus.device.rpc.RPCDevice;
-import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
-public class RedstoneRequesterDevice implements RPCDevice, Device {
-    private final ObjectDevice device;
-
+public class RedstoneRequesterDevice extends AbstractBlockRPCDevice {
     private final RedstoneRequesterBlockEntity requester;
 
     public RedstoneRequesterDevice(RedstoneRequesterBlockEntity requester) {
-        this.device = new ObjectDevice(this, "redstone_requester");
+        super("redstone_requester");
         this.requester = requester;
     }
 
@@ -98,16 +87,6 @@ public class RedstoneRequesterDevice implements RPCDevice, Device {
     @Callback
     public final String getAddress() {
         return this.requester.encodedTargetAdress;
-    }
-
-    @Override
-    public @NotNull List<String> getTypeNames() {
-        return this.device.getTypeNames();
-    }
-
-    @Override
-    public @NotNull List<RPCMethodGroup> getMethodGroups() {
-        return this.device.getMethodGroups();
     }
 
     private List<BigItemStack> generateOrder(Object... obj) {

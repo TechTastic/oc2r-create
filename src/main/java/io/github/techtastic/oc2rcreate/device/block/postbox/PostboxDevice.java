@@ -1,23 +1,15 @@
 package io.github.techtastic.oc2rcreate.device.block.postbox;
 
 import com.simibubi.create.content.logistics.packagePort.postbox.PostboxBlockEntity;
-import li.cil.oc2.api.bus.device.Device;
+import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
-import li.cil.oc2.api.bus.device.object.ObjectDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
-import li.cil.oc2.api.bus.device.rpc.RPCDevice;
-import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
-public class PostboxDevice implements RPCDevice, Device {
-    private final ObjectDevice device;
-
+public class PostboxDevice  extends AbstractBlockRPCDevice {
     private final PostboxBlockEntity postbox;
 
     public PostboxDevice(PostboxBlockEntity postbox) {
-        this.device = new ObjectDevice(this, "postbox");
+        super("postbox");
         this.postbox = postbox;
     }
     
@@ -60,15 +52,5 @@ public class PostboxDevice implements RPCDevice, Device {
         }
         throw new IllegalArgumentException("Unknown configuration: \"" + config
                 + "\" Possible configurations are: \"send_receive\" and \"send\".");
-    }
-
-    @Override
-    public @NotNull List<String> getTypeNames() {
-        return this.device.getTypeNames();
-    }
-
-    @Override
-    public @NotNull List<RPCMethodGroup> getMethodGroups() {
-        return this.device.getMethodGroups();
     }
 }

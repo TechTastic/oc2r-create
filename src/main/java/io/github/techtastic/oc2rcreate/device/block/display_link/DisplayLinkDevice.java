@@ -3,32 +3,25 @@ package io.github.techtastic.oc2rcreate.device.block.display_link;
 import com.simibubi.create.content.redstone.displayLink.DisplayLinkBlockEntity;
 import com.simibubi.create.content.redstone.displayLink.DisplayLinkContext;
 import com.simibubi.create.content.redstone.displayLink.target.DisplayTargetStats;
-import li.cil.oc2.api.bus.device.Device;
+import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
-import li.cil.oc2.api.bus.device.object.ObjectDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
-import li.cil.oc2.api.bus.device.rpc.RPCDevice;
-import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
-import org.jetbrains.annotations.NotNull;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class DisplayLinkDevice implements RPCDevice, Device {
-    private final ObjectDevice device;
-
+public class DisplayLinkDevice  extends AbstractBlockRPCDevice {
     public static final String TAG_KEY = "ComputerSourceList";
     private final DisplayLinkBlockEntity link;
     private final AtomicInteger cursorX = new AtomicInteger();
     private final AtomicInteger cursorY = new AtomicInteger();
 
     protected DisplayLinkDevice(DisplayLinkBlockEntity link) {
-        this.device = new ObjectDevice(this, "display_link");
+        super("display_link");
         this.link = link;
     }
 
@@ -115,15 +108,5 @@ public class DisplayLinkDevice implements RPCDevice, Device {
             link.getSourceConfig().put(TAG_KEY, new ListTag());
             link.tickSource();
         }
-    }
-
-    @Override
-    public @NotNull List<String> getTypeNames() {
-        return this.device.getTypeNames();
-    }
-
-    @Override
-    public @NotNull List<RPCMethodGroup> getMethodGroups() {
-        return this.device.getMethodGroups();
     }
 }

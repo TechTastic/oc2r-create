@@ -2,27 +2,20 @@ package io.github.techtastic.oc2rcreate.device.block.packager;
 
 import com.simibubi.create.content.logistics.box.PackageItem;
 import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
-import li.cil.oc2.api.bus.device.Device;
+import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
-import li.cil.oc2.api.bus.device.object.ObjectDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
-import li.cil.oc2.api.bus.device.rpc.RPCDevice;
-import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.items.IItemHandler;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.List;
 
-public class PackagerDevice implements RPCDevice, Device {
-    private final ObjectDevice device;
-
+public class PackagerDevice  extends AbstractBlockRPCDevice {
     private final PackagerBlockEntity packager;
 
     public PackagerDevice(PackagerBlockEntity packager) {
-        this.device = new ObjectDevice(this, "packager");
+        super("packager");
         this.packager = packager;
     }
 
@@ -76,15 +69,5 @@ public class PackagerDevice implements RPCDevice, Device {
         if (tag == null || !tag.contains("Fragment"))
             return null;
         return tag.getCompound("Fragment");
-    }
-
-    @Override
-    public @NotNull List<String> getTypeNames() {
-        return this.device.getTypeNames();
-    }
-
-    @Override
-    public @NotNull List<RPCMethodGroup> getMethodGroups() {
-        return this.device.getMethodGroups();
     }
 }
