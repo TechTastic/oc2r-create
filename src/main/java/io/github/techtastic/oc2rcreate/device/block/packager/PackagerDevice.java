@@ -1,11 +1,15 @@
 package io.github.techtastic.oc2rcreate.device.block.packager;
 
+import com.simibubi.create.content.logistics.box.PackageItem;
 import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.ObjectDevice;
+import li.cil.oc2.api.bus.device.object.Parameter;
 import li.cil.oc2.api.bus.device.rpc.RPCDevice;
 import li.cil.oc2.api.bus.device.rpc.RPCMethodGroup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
@@ -23,11 +27,16 @@ public class PackagerDevice implements RPCDevice, Device {
     }
 
     @Callback
+    public final boolean hasPackage() {
+        return !this.packager.heldBox.isEmpty();
+    }
+
+    @Callback
     public final boolean makePackage() {
-        if (!packager.heldBox.isEmpty())
+        if (!this.packager.heldBox.isEmpty())
             return false;
-        packager.activate();
-        if (packager.heldBox.isEmpty())
+        this.packager.activate();
+        if (this.packager.heldBox.isEmpty())
             return false;
         return true;
     }
@@ -42,9 +51,31 @@ public class PackagerDevice implements RPCDevice, Device {
         return packager.signBasedAddress;
     }
 
+    // Package Methods
+
     @Callback
-    public final PackageWrapper getPackage() {
-        return new PackageWrapper(this.packager, this.packager.heldBox);
+    public final String getPackageAddress() {
+        return PackageItem.getAddress(this.packager.heldBox);
+    }
+
+    @Callback
+    public final void setPackageAddress(@Parameter("address") String address) {
+        PackageItem.addAddress(this.packager.heldBox, address);
+    }
+
+    @Callback
+    public final IItemHandler getPackageItems() {
+        return PackageItem.getContents(this.packager.heldBox);
+    }
+
+    // Package Order Methods
+
+    @Callback
+    public final CompoundTag getPackageOrder() {
+        CompoundTag tag = this.packager.heldBox.getTag();
+        if (tag == null || !tag.contains("Fragment"))
+            return null;
+        return tag.getCompound("Fragment");
     }
 
     @Override
