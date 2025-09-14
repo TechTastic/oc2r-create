@@ -9,6 +9,8 @@
     "create:repackager",
     "create:sequenced_gearshift",
     "create:rotation_speed_controller",
-    "create:speedometer"
+    "create:speedometer",
+    "create:track_station",
+    "create:stock_ticker"
   ]
 }
