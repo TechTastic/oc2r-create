@@ -4,14 +4,16 @@ import com.simibubi.create.content.logistics.box.PackageItem;
 import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.items.IItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class PackagerDevice  extends AbstractBlockRPCDevice {
+public class PackagerDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final PackagerBlockEntity packager;
 
     public PackagerDevice(PackagerBlockEntity packager) {
@@ -69,5 +71,23 @@ public class PackagerDevice  extends AbstractBlockRPCDevice {
         if (tag == null || !tag.contains("Fragment"))
             return null;
         return tag.getCompound("Fragment");
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("hasPackage")
+                .description("Verifies whether the Packager contains a package");
+        deviceVisitor.visitCallback("makePackage")
+                .description("Makes a new package from the connected container");
+        deviceVisitor.visitCallback("getAddress")
+                .description("Gets the current address of the Packager");
+        deviceVisitor.visitCallback("getPackageAddress")
+                .description("Gets the target address of the contained Package");
+        deviceVisitor.visitCallback("setPackageAddress")
+                .description("Sets the target address of the contained Package");
+        deviceVisitor.visitCallback("getPackageItems")
+                .description("Gets the item handler of the contained Package");
+        deviceVisitor.visitCallback("getPackageOrder")
+                .description("Gets the order associated with the contained Package as an NBT tag");
     }
 }

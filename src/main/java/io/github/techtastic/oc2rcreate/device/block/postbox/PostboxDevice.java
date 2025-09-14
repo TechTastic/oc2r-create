@@ -3,9 +3,11 @@ package io.github.techtastic.oc2rcreate.device.block.postbox;
 import com.simibubi.create.content.logistics.packagePort.postbox.PostboxBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
+import org.jetbrains.annotations.NotNull;
 
-public class PostboxDevice  extends AbstractBlockRPCDevice {
+public class PostboxDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final PostboxBlockEntity postbox;
 
     public PostboxDevice(PostboxBlockEntity postbox) {
@@ -52,5 +54,17 @@ public class PostboxDevice  extends AbstractBlockRPCDevice {
         }
         throw new IllegalArgumentException("Unknown configuration: \"" + config
                 + "\" Possible configurations are: \"send_receive\" and \"send\".");
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("setAddress")
+                .description("Sets the address filter of the Postbox");
+        deviceVisitor.visitCallback("getAddress")
+                .description("Gets the address filter of the Postbox");
+        deviceVisitor.visitCallback("getConfiguration")
+                .description("Gets the current mode of the Postbox");
+        deviceVisitor.visitCallback("setConfiguration")
+                .description("Sets the current mode of the Postbox");
     }
 }

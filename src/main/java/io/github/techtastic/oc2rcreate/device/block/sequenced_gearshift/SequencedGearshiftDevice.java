@@ -6,9 +6,11 @@ import com.simibubi.create.content.kinetics.transmission.sequencer.SequencedGear
 import com.simibubi.create.content.kinetics.transmission.sequencer.SequencerInstructions;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
+import org.jetbrains.annotations.NotNull;
 
-public class SequencedGearshiftDevice extends AbstractBlockRPCDevice {
+public class SequencedGearshiftDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final SequencedGearshiftBlockEntity gearshift;
 
     public SequencedGearshiftDevice(SequencedGearshiftBlockEntity gearshift) {
@@ -51,5 +53,15 @@ public class SequencedGearshiftDevice extends AbstractBlockRPCDevice {
         this.gearshift.getInstructions().add(new Instruction(SequencerInstructions.END));
 
         this.gearshift.run(0);
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DocumentedDevice.DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("rotate")
+                .description("Rotates the Sequenced Gearshift by the given angle");
+        deviceVisitor.visitCallback("move")
+                .description("Rotates the Sequenced Gearshift around the given distance");
+        deviceVisitor.visitCallback("isRunning")
+                .description("Verifies if the Sequenced Gearshift is currently completing an instruction set");
     }
 }

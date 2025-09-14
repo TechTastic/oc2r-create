@@ -8,15 +8,17 @@ import com.simibubi.create.content.logistics.stockTicker.StockTickerBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import io.github.techtastic.oc2rcreate.util.NBTTableUtil;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockTickerDevice extends AbstractBlockRPCDevice {
+public class StockTickerDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final StockTickerBlockEntity ticker;
 
     public StockTickerDevice(StockTickerBlockEntity ticker) {
@@ -72,5 +74,11 @@ public class StockTickerDevice extends AbstractBlockRPCDevice {
                 return 0;
         }
         return entry.count;
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("requestFiltered")
+                .description("Trigger a reguest for items based upon the provided filters");
     }
 }

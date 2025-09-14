@@ -7,21 +7,18 @@ import com.simibubi.create.content.trains.schedule.Schedule;
 import com.simibubi.create.content.trains.station.GlobalStation;
 import com.simibubi.create.content.trains.station.StationBlockEntity;
 import com.simibubi.create.content.trains.station.TrainEditPacket;
-import com.simibubi.create.foundation.utility.StringHelper;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import io.github.techtastic.oc2rcreate.util.NBTTableUtil;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import li.cil.oc2.common.config.Config;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Map;
-
-public class TrainStationDevice extends AbstractBlockRPCDevice {
+public class TrainStationDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final StationBlockEntity station;
 
     public TrainStationDevice(StationBlockEntity station) {
@@ -145,5 +142,35 @@ public class TrainStationDevice extends AbstractBlockRPCDevice {
         if (train == null)
             throw new RuntimeException("There is no train present!");
         return train;
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("assemble")
+                .description("Attempts to assemble a new train");
+        deviceVisitor.visitCallback("disassemble")
+                .description("Attempts to disassemble the present train");
+        deviceVisitor.visitCallback("setAssemblyMode")
+                .description("Attempts to enter/exit assembly mode");
+        deviceVisitor.visitCallback("getStationName")
+                .description("Gets the current name of the Station");
+        deviceVisitor.visitCallback("setStationName")
+                .description("Sets the current name of the Station");
+        deviceVisitor.visitCallback("isTrainPresent")
+                .description("Verifies whether a train is currently present at the Station");
+        deviceVisitor.visitCallback("isTrainImminent")
+                .description("Verifies whether a train is coming into the Station");
+        deviceVisitor.visitCallback("isTrainEnroute")
+                .description("Verifies whether a train is routing to the Station");
+        deviceVisitor.visitCallback("getTrainName")
+                .description("Gets the name of the present train");
+        deviceVisitor.visitCallback("setTrainName")
+                .description("Sets the name of thr present train");
+        deviceVisitor.visitCallback("hasSchedule")
+                .description("Verifies whether the present train has a schedule");
+        deviceVisitor.visitCallback("getSchedule")
+                .description("Gets the schedule of the present train");
+        deviceVisitor.visitCallback("setSchedule")
+                .description("Sets the schedule of the present train");
     }
 }

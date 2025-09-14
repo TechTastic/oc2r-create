@@ -3,10 +3,14 @@ package io.github.techtastic.oc2rcreate;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDevice;
+import io.github.techtastic.oc2rcreate.util.OC2RCoreHandler;
+import li.cil.oc2.common.item.ItemGroup;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -27,10 +31,19 @@ public class OC2RCreate {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.addListener(this::addLinksToNetwork);
+        modEventBus.addListener(this::addToTabs);
 
         Items.register(modEventBus);
         Providers.register(modEventBus);
         DisplaySources.register(modEventBus);
+    }
+
+    private void addToTabs(BuildCreativeModeTabContentsEvent event) {
+        if (ModList.get().isLoaded("oc2rcore"))
+            OC2RCoreHandler.addItemsToTab(event);
+
+        if (event.getTabKey() == ItemGroup.COMMON_TAB.getKey())
+            event.accept(Items.REDSTONE_LINK_CARD);
     }
 
     private void addLinksToNetwork(TickEvent.LevelTickEvent event) {

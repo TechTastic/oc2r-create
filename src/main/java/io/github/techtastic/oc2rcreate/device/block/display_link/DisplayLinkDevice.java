@@ -5,16 +5,18 @@ import com.simibubi.create.content.redstone.displayLink.DisplayLinkContext;
 import com.simibubi.create.content.redstone.displayLink.target.DisplayTargetStats;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
+import org.jetbrains.annotations.NotNull;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class DisplayLinkDevice  extends AbstractBlockRPCDevice {
+public class DisplayLinkDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     public static final String TAG_KEY = "ComputerSourceList";
     private final DisplayLinkBlockEntity link;
     private final AtomicInteger cursorX = new AtomicInteger();
@@ -108,5 +110,23 @@ public class DisplayLinkDevice  extends AbstractBlockRPCDevice {
             link.getSourceConfig().put(TAG_KEY, new ListTag());
             link.tickSource();
         }
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("setCursorPos")
+                .description("Sets the position of the cursor relative to the Display Target");
+        deviceVisitor.visitCallback("getCursorPos")
+                .description("Gets the position of the cursor relative to the Display Target");
+        deviceVisitor.visitCallback("getSize")
+                .description("Gets the size of the Display target in rows and columns");
+        deviceVisitor.visitCallback("write")
+                .description("Writes text to the Display Target at the current cursor position");
+        deviceVisitor.visitCallback("writeBytes")
+                .description("Writes the bytes to the Display Target at the current position");
+        deviceVisitor.visitCallback("clearLine")
+                .description("Clears the line (row) of the Display Target that the cursor is on");
+        deviceVisitor.visitCallback("clear")
+                .description("Clears all data from the Display Target");
     }
 }

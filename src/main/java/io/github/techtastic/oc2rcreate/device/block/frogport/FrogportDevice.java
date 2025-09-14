@@ -3,9 +3,11 @@ package io.github.techtastic.oc2rcreate.device.block.frogport;
 import com.simibubi.create.content.logistics.packagePort.frogport.FrogportBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
+import org.jetbrains.annotations.NotNull;
 
-public class FrogportDevice  extends AbstractBlockRPCDevice {
+public class FrogportDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final FrogportBlockEntity frogport;
 
     public FrogportDevice(FrogportBlockEntity frogport) {
@@ -52,5 +54,17 @@ public class FrogportDevice  extends AbstractBlockRPCDevice {
         }
         throw new IllegalArgumentException("Unknown configuration: \"" + config
                 + "\" Possible configurations are: \"send_receive\" and \"send\".");
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DocumentedDevice.DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("setAddress")
+                .description("Sets the current address filter of the Frogport");
+        deviceVisitor.visitCallback("getAddress")
+                .description("Gets the current address filter of the Frogport");
+        deviceVisitor.visitCallback("getConfiguration")
+                .description("Gets the current mode of the Frogport");
+        deviceVisitor.visitCallback("setConfiguration")
+                .description("Sets the current mode of the Frogport");
     }
 }

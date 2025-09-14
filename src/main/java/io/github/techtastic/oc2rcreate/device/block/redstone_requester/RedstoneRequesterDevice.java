@@ -7,17 +7,19 @@ import com.simibubi.create.content.logistics.stockTicker.PackageOrder;
 import com.simibubi.create.content.logistics.stockTicker.PackageOrderWithCrafts;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class RedstoneRequesterDevice extends AbstractBlockRPCDevice {
+public class RedstoneRequesterDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final RedstoneRequesterBlockEntity requester;
 
     public RedstoneRequesterDevice(RedstoneRequesterBlockEntity requester) {
@@ -110,5 +112,23 @@ public class RedstoneRequesterDevice extends AbstractBlockRPCDevice {
         }).toList();
 
         return list.subList(0, Math.min(9, list.size()));
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("request")
+                .description("Trigger a reguest for the current item(s)");
+        deviceVisitor.visitCallback("setRequest")
+                .description("Sets the currently reguested item(s)");
+        deviceVisitor.visitCallback("setCraftingRequest")
+                .description("Sets the currently crafting requested item(s)");
+        deviceVisitor.visitCallback("getConfiguration")
+                .description("Gets the current mode of the Redstone Requester");
+        deviceVisitor.visitCallback("setConfiguration")
+                .description("Sets the current mode of the Redstone Requester");
+        deviceVisitor.visitCallback("setAddress")
+                .description("Sets the target address of the Redstone Requester");
+        deviceVisitor.visitCallback("getAddress")
+                .description("Gets the target address of the Redstone Requester");
     }
 }

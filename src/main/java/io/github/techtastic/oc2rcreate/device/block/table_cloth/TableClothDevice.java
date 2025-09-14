@@ -6,15 +6,17 @@ import com.simibubi.create.content.logistics.stockTicker.PackageOrderWithCrafts;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
+import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableClothDevice extends AbstractBlockRPCDevice {
+public class TableClothDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final TableClothBlockEntity table;
 
     public TableClothDevice(TableClothBlockEntity table) {
@@ -94,5 +96,23 @@ public class TableClothDevice extends AbstractBlockRPCDevice {
 
     private void setPriceTag(ItemStack item) {
         this.table.priceTag.setFilter(item);
+    }
+
+    @Override
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("getAddress")
+                .description("Gets the target address for purchased items");
+        deviceVisitor.visitCallback("setAddress")
+                .description("Sets the target address for purchased items");
+        deviceVisitor.visitCallback("getPriceTag")
+                .description("Gets the current price tag item");
+        deviceVisitor.visitCallback("setPriceTagItem")
+                .description("Sets the current price tag item");
+        deviceVisitor.visitCallback("setPriceTagCount")
+                .description("Sets the payment amount of the price tag item");
+        deviceVisitor.visitCallback("getWares")
+                .description("Gets the offered wares");
+        deviceVisitor.visitCallback("setWares")
+                .description("Sets the offered wares");
     }
 }
