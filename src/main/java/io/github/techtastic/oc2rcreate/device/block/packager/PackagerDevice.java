@@ -16,9 +16,13 @@ import java.lang.reflect.Method;
 public class PackagerDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final PackagerBlockEntity packager;
 
-    public PackagerDevice(PackagerBlockEntity packager) {
-        super("packager");
+    public PackagerDevice(PackagerBlockEntity packager, String typeName) {
+        super(typeName);
         this.packager = packager;
+    }
+
+    public PackagerDevice(PackagerBlockEntity packager) {
+        this(packager, "packager");
     }
 
     @Callback

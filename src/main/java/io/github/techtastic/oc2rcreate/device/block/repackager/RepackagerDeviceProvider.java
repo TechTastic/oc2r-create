@@ -17,6 +17,6 @@ public class RepackagerDeviceProvider extends AbstractBlockEntityDeviceProvider<
 
     @Override
     protected @NotNull Invalidatable<Device> getBlockDevice(@NotNull BlockDeviceQuery query, @NotNull RepackagerBlockEntity packager) {
-        return Invalidatable.of(new PackagerDevice(packager));
+        return Invalidatable.of(new RepackagerDevice(packager));
     }
 }
