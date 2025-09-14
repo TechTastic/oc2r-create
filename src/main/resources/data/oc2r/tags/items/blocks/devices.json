@@ -4,7 +4,7 @@
     "create:display_link",
     "create:package_frogport",
     "create:packager",
-    "create:package_postbox",
+    "#create:postboxes",
     "create:redstone_requester",
     "create:repackager",
     "create:sequenced_gearshift",
