@@ -5,6 +5,7 @@
     "create:package_frogport",
     "create:packager",
     "create:package_postbox",
-    "create:redstone_requester"
+    "create:redstone_requester",
+    "create:repackager"
   ]
 }
