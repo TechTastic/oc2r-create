@@ -27,8 +27,11 @@ jobs:
       - name: Build
         run: ./gradlew build
 
-      - name: Publish
-        run: ./gradlew publishToModSites
+      - name: Publish to Modrinth
+        run: ./gradlew modrinth
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+      - name: Publish to CurseForge
+        run: ./gradlew curseforge
+        env:
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}

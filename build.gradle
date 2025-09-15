@@ -270,8 +270,3 @@ modrinth {
         new ModDependency('QvTXtGc8', 'optional')
     }
 }
-
-tasks.register('publishToModSites') {
-    dependsOn modrinth
-    dependsOn curseforge
-}
