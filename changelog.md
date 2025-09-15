@@ -1,2 +1,2 @@
 # Changes
-- Added proper in-game documentation
+- Fixes typos in documentation
