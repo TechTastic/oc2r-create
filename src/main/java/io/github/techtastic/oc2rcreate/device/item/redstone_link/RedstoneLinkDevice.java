@@ -64,7 +64,18 @@ public class RedstoneLinkDevice extends AbstractItemRPCDevice implements Documen
     }
 
     @Override
-    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {}
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("getFrequency")
+                .description("Gets the current frequency");
+        deviceVisitor.visitCallback("changeFrequency")
+                .description("Sets the current frequency");
+        deviceVisitor.visitCallback("getTransmittedStrength")
+                .description("Gets the transmitted strength");
+        deviceVisitor.visitCallback("setTransmittedStrength")
+                .description("Sets the transmitted strength");
+        deviceVisitor.visitCallback("clear")
+                .description("Resets the link to no strength and an empty frequency");
+    }
 
     @Callback
     public void setTransmittedStrength(@Parameter("strength") int strength) {
@@ -72,7 +83,7 @@ public class RedstoneLinkDevice extends AbstractItemRPCDevice implements Documen
         this.update();
     }
 
-    @Callback(name = "getFrequency")
+    @Callback
     public List<ItemStack> getFrequency() {
         return this.frequency.map(RedstoneLinkNetworkHandler.Frequency::getStack).stream().toList();
     }
