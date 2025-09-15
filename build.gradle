@@ -1,3 +1,5 @@
+import com.modrinth.minotaur.dependencies.ModDependency
+
 buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository blocks further below
@@ -13,6 +15,8 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id "com.modrinth.minotaur" version "2.+"
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -228,4 +232,45 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+curseforge {
+    apiKey = System.getenv("CURSEFORGE_TOKEN") == null ? '' : System.getenv("CURSEFORGE_TOKEN")
+    project {
+        id = '1347268'
+        changelogType = 'markdown'
+        changelog = rootProject.file("changelog.md")
+        releaseType = 'release'
+        addGameVersion '1.20.1'
+
+        relations {
+            requiredDependency 'create'
+            requiredDependency 'oc2r'
+            optionalDependency 'oc2r-addon-core'
+        }
+
+        mainArtifact(jar) {
+            displayName = "$mod_name $mod_version $create_version"
+        }
+    }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN") == null ? '' : System.getenv("MODRINTH_TOKEN")
+    projectId = 'ilLP6Q7N'
+    versionNumber = mod_version
+    versionName = "$mod_name $mod_version $create_version"
+    uploadFile = jar
+    gameVersions = ['1.20.1']
+    loaders = ['forge']
+    dependencies {
+        new ModDependency('LNytGWDc', 'required')
+        new ModDependency('F1gm4RsH', 'required')
+        new ModDependency('QvTXtGc8', 'optional')
+    }
+}
+
+tasks.register('publishToModSites') {
+    dependsOn modrinth
+    dependsOn curseforge
 }
