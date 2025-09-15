@@ -3,8 +3,13 @@ package io.github.techtastic.oc2rcreate;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDevice;
+import io.github.techtastic.oc2rcreate.manual.OC2RCreateDocumentProvider;
+import io.github.techtastic.oc2rcreate.manual.OC2RCreatePathProvider;
+import io.github.techtastic.oc2rcreate.manual.OC2RCreateTab;
 import io.github.techtastic.oc2rcreate.util.OC2RCoreHandler;
+import li.cil.manual.api.util.Constants;
 import li.cil.oc2.common.item.ItemGroup;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -13,6 +18,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -31,11 +37,18 @@ public class OC2RCreate {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.addListener(this::addLinksToNetwork);
+        MinecraftForge.EVENT_BUS.addListener(this::registerStuff);
         modEventBus.addListener(this::addToTabs);
 
         Items.register(modEventBus);
         Providers.register(modEventBus);
         DisplaySources.register(modEventBus);
+    }
+
+    private void registerStuff(RegisterEvent event) {
+        event.register(Constants.TAB_REGISTRY, ResourceLocation.fromNamespaceAndPath(MODID, MODID), OC2RCreateTab::new);
+        event.register(Constants.PATH_PROVIDER_REGISTRY, ResourceLocation.fromNamespaceAndPath(MODID, "path_provider"), OC2RCreatePathProvider::new);
+        event.register(Constants.DOCUMENT_PROVIDER_REGISTRY, ResourceLocation.fromNamespaceAndPath(MODID, "content_provider"), OC2RCreateDocumentProvider::new);
     }
 
     private void addToTabs(BuildCreativeModeTabContentsEvent event) {
