@@ -1,3 +1,6 @@
+![Logo](https://github.com/TechTastic/oc2r-create/blob/main/src/main/resources/logo.png)
+# OC2R: Create
+
 **OC2R: Create** is a bridge/integration addon between **OpenComputers 2: Reimagined** and **Create**!
 
 This is accomplished by mimicking Create's existing CC: Tweaked peripherals using OC2R's Device system as well as adding some new ones of our own.
