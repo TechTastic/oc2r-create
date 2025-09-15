@@ -1,0 +1,25 @@
+name: publish
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+      packages: write
+    strategy:
+      matrix:
+        java: [ 17 ]
+        os: [ ubunutu-22.04 ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Build and Publish"
+        run: ./gradlew publishToModSites
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
