@@ -122,6 +122,8 @@ public class RedstoneRequesterDevice extends AbstractBlockRPCDevice implements D
                 .description("Sets the currently reguested item(s)");
         deviceVisitor.visitCallback("setCraftingRequest")
                 .description("Sets the currently crafting requested item(s)");
+        deviceVisitor.visitCallback("getRequest")
+                .description("Gets the current request");
         deviceVisitor.visitCallback("getConfiguration")
                 .description("Gets the current mode of the Redstone Requester");
         deviceVisitor.visitCallback("setConfiguration")

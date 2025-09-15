@@ -51,13 +51,13 @@ public class DisplayLinkDevice extends AbstractBlockRPCDevice implements Documen
     }
 
     @Callback
-    public final void writeBytes(@Parameter("str") String str) {
+    public final void writeBytes(@Parameter("bytes") String str) {
         byte[] bytes = str.getBytes(StandardCharsets.US_ASCII);
         writeImpl(new String(bytes, StandardCharsets.UTF_8));
     }
 
     @Callback
-    public final void writeBytes(@Parameter("table") Map<?, ?> map) {
+    public final void writeBytes(@Parameter("bytes") Map<?, ?> map) {
         byte[] bytes;
         bytes = new byte[map.size()];
         for (int i = 0; i < bytes.length; i++) {

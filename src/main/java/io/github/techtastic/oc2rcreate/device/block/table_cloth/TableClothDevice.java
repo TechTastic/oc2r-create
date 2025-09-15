@@ -45,7 +45,7 @@ public class TableClothDevice extends AbstractBlockRPCDevice implements Document
     }
 
     @Callback
-    public final void setPriceTagItem(@Parameter("id") String id) {
+    public final void setPriceTagItem(@Parameter("item") String id) {
         setPriceTag(new ItemStack(ForgeRegistries.ITEMS.getDelegateOrThrow(ResourceLocation.tryParse(id)).value()));
     }
 

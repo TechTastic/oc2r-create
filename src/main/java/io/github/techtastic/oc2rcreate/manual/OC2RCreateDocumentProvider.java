@@ -8,7 +8,7 @@ import li.cil.oc2.client.manual.Manuals;
 import org.jetbrains.annotations.NotNull;
 
 public class OC2RCreateDocumentProvider extends NamespaceDocumentProvider {
-        public OC2RCreateDocumentProvider() {
+    public OC2RCreateDocumentProvider() {
             super(OC2RCreate.MODID, "doc");
         }
 

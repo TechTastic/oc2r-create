@@ -1,4 +1,5 @@
 {
   "oc2rcreate.display_source.oc2r_source": "Computer Bus",
-  "item.oc2rcreate.redstone_link_card": "Redstone Link Card"
+  "item.oc2rcreate.redstone_link_card": "Redstone Link Card",
+  "oc2rcreate.manual.tab": "Create Integration"
 }

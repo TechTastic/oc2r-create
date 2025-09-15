@@ -152,6 +152,8 @@ public class TrainStationDevice extends AbstractBlockRPCDevice implements Docume
                 .description("Attempts to disassemble the present train");
         deviceVisitor.visitCallback("setAssemblyMode")
                 .description("Attempts to enter/exit assembly mode");
+        deviceVisitor.visitCallback("isInAssemblyMode")
+                .description("Verifies whether the Station is in assembly mode");
         deviceVisitor.visitCallback("getStationName")
                 .description("Gets the current name of the Station");
         deviceVisitor.visitCallback("setStationName")
