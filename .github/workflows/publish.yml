@@ -22,7 +22,6 @@ jobs:
           java-version: 17
 
       - name: Make Gradle Wrapper Executable
-        if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
 
       - name: Build
