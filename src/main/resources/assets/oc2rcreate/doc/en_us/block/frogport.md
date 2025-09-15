@@ -2,7 +2,7 @@
 
 ![Wart!](block:create:package_frogport)
 
-This device allows the computer to manipulate the Frogpost, including changing its address filter and its current mode!
+This device allows the computer to manipulate the Frogport, including changing its address filter and its current mode!
 
 This is an example of how to access the device.
 *local d = require("devices")*

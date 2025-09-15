@@ -20,7 +20,7 @@ This method attempts to assemble the current train.
 This method attempts to disassemble the present train.
 
 *setAssemblyMode(asssemblyMode:boolean)*
-This method attempts ot enter/exit assembly mode
+This method attempts to enter/exit assembly mode
 - *assemblyMode* is a boolean representing whether to enter or exit assembly mode
 
 *isInAssemblyMode():boolean*
