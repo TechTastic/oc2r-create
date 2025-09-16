@@ -1,4 +1,4 @@
-![Logo](https://github.com/TechTastic/oc2r-create/blob/main/src/main/resources/logo.png)
+![Logo](https://github.com/TechTastic/oc2r-create/blob/1.20.1/create5/src/main/resources/logo.png)
 # OC2R: Create
 
 **OC2R: Create** is a bridge/integration addon between **OpenComputers 2: Reimagined** and **Create**!
