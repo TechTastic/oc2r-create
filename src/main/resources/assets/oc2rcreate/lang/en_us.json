@@ -2,5 +2,6 @@
   "oc2rcreate.display_source.oc2r_source": "Computer Bus",
   "item.oc2rcreate.redstone_link_card": "Redstone Link Card",
   "oc2rcreate.manual.tab": "Create Integration",
+  "postproduction_backported.manual.tab": "Post Production Integration",
   "oc2rcreate.redstone_link.strength": "Strength: %d"
 }

@@ -1,10 +1,10 @@
 package io.github.techtastic.oc2rcreate.device.block.postbox;
 
-import com.simibubi.create.content.logistics.packagePort.postbox.PostboxBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
+import moe.paring.createlogisticsbackport.content.logistics.packagePort.postbox.PostboxBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class PostboxDevice extends AbstractBlockRPCDevice implements DocumentedDevice {

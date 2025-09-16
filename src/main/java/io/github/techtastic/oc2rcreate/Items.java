@@ -1,8 +1,8 @@
 package io.github.techtastic.oc2rcreate;
 
 import com.simibubi.create.content.redstone.link.RedstoneLinkNetworkHandler;
+import com.simibubi.create.foundation.utility.Couple;
 import li.cil.oc2.common.item.ModItem;
-import net.createmod.catnip.data.Couple;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;

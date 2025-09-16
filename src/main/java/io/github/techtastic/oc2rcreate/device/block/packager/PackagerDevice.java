@@ -1,11 +1,11 @@
 package io.github.techtastic.oc2rcreate.device.block.packager;
 
-import com.simibubi.create.content.logistics.box.PackageItem;
-import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
+import moe.paring.createlogisticsbackport.content.logistics.box.PackageItem;
+import moe.paring.createlogisticsbackport.content.logistics.packager.PackagerBlockEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;

@@ -1,18 +1,41 @@
 {
   "replace": false,
   "values": [
+    "create:creative_motor",
     "create:display_link",
-    "create:package_frogport",
-    "create:packager",
-    "#create:postboxes",
-    "create:redstone_requester",
-    "create:repackager",
+    "create:weighted_ejector",
+    {
+      "id": "create:package_frogport",
+      "required": false
+    },
+    {
+      "id": "create:packager",
+      "required": false
+    },
+    {
+      "id": "#create:postboxes",
+      "required": false
+    },
+    {
+      "id": "create:redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create:repackager",
+      "required": false
+    },
     "create:sequenced_gearshift",
     "create:rotation_speed_controller",
     "create:speedometer",
     "create:track_station",
-    "create:stock_ticker",
+    {
+      "id": "create:stock_ticker",
+      "required": false
+    },
     "create:stressometer",
-    "#create:table_cloths"
+    {
+      "id": "#create:table_cloths",
+      "required": false
+    }
   ]
 }

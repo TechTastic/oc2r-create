@@ -101,7 +101,7 @@ public class TrainStationDevice extends AbstractBlockRPCDevice implements Docume
     public final void setTrainName(@Parameter("name") String name) {
         Train train = getTrainOrThrow();
         train.name = Component.literal(name);
-        AllPackets.getChannel().send(PacketDistributor.ALL.noArg(), new TrainEditPacket.TrainEditReturnPacket(train.id, name, train.icon.getId(), train.mapColorIndex));
+        AllPackets.getChannel().send(PacketDistributor.ALL.noArg(), new TrainEditPacket.TrainEditReturnPacket(train.id, name, train.icon.getId()));
     }
 
     @Callback

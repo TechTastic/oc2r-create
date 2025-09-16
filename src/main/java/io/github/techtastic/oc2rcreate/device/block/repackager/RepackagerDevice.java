@@ -1,7 +1,7 @@
 package io.github.techtastic.oc2rcreate.device.block.repackager;
 
-import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.packager.PackagerDevice;
+import moe.paring.createlogisticsbackport.content.logistics.packager.PackagerBlockEntity;
 
 public class RepackagerDevice extends PackagerDevice {
     public RepackagerDevice(PackagerBlockEntity packager) {

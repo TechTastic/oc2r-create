@@ -31,16 +31,6 @@ public class Providers {
 
     public static final RegistryObject<BlockDeviceProvider> DISPLAY_LINK =
             BLOCK_PROVIDERS.register("display_link", DisplayLinkDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> FROGPORT =
-            BLOCK_PROVIDERS.register("frogport", FrogportDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> PACKAGER =
-            BLOCK_PROVIDERS.register("packager", PackagerDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> POSTBOX =
-            BLOCK_PROVIDERS.register("postbox", PostboxDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> REDSTONE_REQUESTER =
-            BLOCK_PROVIDERS.register("redstone_requester", RedstoneRequesterDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> REPACKAGER =
-            BLOCK_PROVIDERS.register("repackager", RepackagerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> SEQUENCED_GEARSHIFT =
             BLOCK_PROVIDERS.register("sequenced_gearshift", SequencedGearshiftDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> SPEED_CONTROLLER =
@@ -49,12 +39,8 @@ public class Providers {
             BLOCK_PROVIDERS.register("speedometer", SpeedometerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> TRAIN_STATION =
             BLOCK_PROVIDERS.register("station", TrainStationDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> STOCK_LINKER =
-            BLOCK_PROVIDERS.register("stock_ticker", StockTickerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> STRESSOMETER =
             BLOCK_PROVIDERS.register("stressometer", StressometerDeviceProvider::new);
-    public static final RegistryObject<BlockDeviceProvider> TABLE_CLOTH =
-            BLOCK_PROVIDERS.register("table_cloth", TableClothDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> CREATIVE_MOTOR =
             BLOCK_PROVIDERS.register("creative_motor", CreativeMotorDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> EJECTOR =

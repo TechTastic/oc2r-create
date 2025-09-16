@@ -141,15 +141,19 @@ repositories {
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
 
-    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
+    maven { url = "https://modmaven.dev/" } // Create, Flywheel
     maven { url = "https://maven.ithundxr.dev/mirror" } // Registrate
-    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // ForgeConfigAPIPort
+    //maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // ForgeConfigAPIPort
 
     maven {
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
         }
+    }
+
+    maven {
+        url = "https://api.modrinth.com/maven"
     }
 
     flatDir {
@@ -180,13 +184,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation(fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false })
-    implementation(fg.deobf("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}"))
-    compileOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}"))
-    runtimeOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}"))
-    implementation(fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}"))
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
-    implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+
+    implementation fg.deobf("maven.modrinth:post-production-backported:$post_production_backport_version")
 
     implementation "curse.maven:oc2r-1037738:6914611"
     implementation "curse.maven:oc2raddoncore-1194254:6967195"
@@ -251,7 +253,7 @@ curseforge {
         }
 
         mainArtifact(jar) {
-            displayName = "$mod_name $mod_version for Create ${create_version.split('-')[0]}"
+            displayName = "$mod_name $mod_version for Create ${create_version.split('-')[0].replace('.j', 'j')}"
         }
     }
 }
@@ -262,13 +264,14 @@ modrinth {
     changelog = rootProject.file("changelog.md").text
     versionType = 'release'
     versionNumber = mod_version
-    versionName = "$mod_name $mod_version for Create ${create_version.split('-')[0]}"
+    versionName = "$mod_name $mod_version for Create ${create_version.split('-')[0].replace('.j', 'j')}"
     uploadFile = jar
     gameVersions = ['1.20.1']
     loaders = ['forge']
     dependencies {
-        required.version 'create', "$minecraft_version-${create_version.split('-')[0]}"
+        required.version 'create', "$minecraft_version-${create_version.split('-')[0].replace('.j', 'j')}"
         required.project 'oc2r'
         optional.project 'oc2r-addon-core'
+        optional.project 'post-production-backported'
     }
 }

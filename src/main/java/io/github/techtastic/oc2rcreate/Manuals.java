@@ -2,12 +2,14 @@ package io.github.techtastic.oc2rcreate;
 
 import io.github.techtastic.oc2rcreate.manual.OC2RCreateDocumentProvider;
 import io.github.techtastic.oc2rcreate.manual.OC2RCreatePathProvider;
+import io.github.techtastic.oc2rcreate.manual.OC2RCreatePostProductionTab;
 import io.github.techtastic.oc2rcreate.manual.OC2RCreateTab;
 import li.cil.manual.api.Tab;
 import li.cil.manual.api.provider.DocumentProvider;
 import li.cil.manual.api.provider.PathProvider;
 import li.cil.manual.api.util.Constants;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -21,6 +23,9 @@ public class Manuals {
     public static final RegistryObject<DocumentProvider> CONTENT_PROVIDER = DOCUMENTS.register("content_provider", OC2RCreateDocumentProvider::new);
 
     public static void register(IEventBus bus) {
+        if (ModList.get().isLoaded("postproduction_backported"))
+            TABS.register("postproduction_backported", OC2RCreatePostProductionTab::new);
+
         TABS.register(bus);
         PATHS.register(bus);
         DOCUMENTS.register(bus);
