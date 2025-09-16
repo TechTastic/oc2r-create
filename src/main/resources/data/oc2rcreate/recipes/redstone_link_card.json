@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ALT",
+    " C "
+  ],
+  "key": {
+    "L": {
+      "item": "create:redstone_link"
+    },
+    "T": {
+      "item": "oc2r:transmitter"
+    },
+    "C": {
+      "item": "oc2r:circuit_board"
+    },
+    "A": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "oc2rcreate:redstone_link_card"
+  }
+}
