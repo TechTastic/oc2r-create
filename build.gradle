@@ -259,14 +259,16 @@ curseforge {
 modrinth {
     token = System.getenv("MODRINTH_TOKEN") == null ? '' : System.getenv("MODRINTH_TOKEN")
     projectId = 'ilLP6Q7N'
+    changelog = rootProject.file("changelog.md").text
+    versionType = 'release'
     versionNumber = mod_version
     versionName = "$mod_name $mod_version $create_version"
     uploadFile = jar
     gameVersions = ['1.20.1']
     loaders = ['forge']
     dependencies {
-        new ModDependency('LNytGWDc', 'required')
-        new ModDependency('F1gm4RsH', 'required')
-        new ModDependency('QvTXtGc8', 'optional')
+        required.version 'create', create_version
+        required.project 'ocr2'
+        optional.project 'oc2r-addon-core'
     }
 }
