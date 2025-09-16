@@ -251,7 +251,7 @@ curseforge {
         }
 
         mainArtifact(jar) {
-            displayName = "$mod_name $mod_version $create_version"
+            displayName = "$mod_name $mod_version for Create ${create_version.split('-')[0]}"
         }
     }
 }
@@ -262,13 +262,13 @@ modrinth {
     changelog = rootProject.file("changelog.md").text
     versionType = 'release'
     versionNumber = mod_version
-    versionName = "$mod_name $mod_version $create_version"
+    versionName = "$mod_name $mod_version for Create ${create_version.split('-')[0]}"
     uploadFile = jar
     gameVersions = ['1.20.1']
     loaders = ['forge']
     dependencies {
-        required.version 'create', "$minecraft_version-${create_version.replace('-*', '')}"
-        required.project 'ocr2'
+        required.version 'create', "$minecraft_version-${create_version.split('-')[0]}"
+        required.project 'oc2r'
         optional.project 'oc2r-addon-core'
     }
 }
