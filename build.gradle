@@ -267,7 +267,7 @@ modrinth {
     gameVersions = ['1.20.1']
     loaders = ['forge']
     dependencies {
-        required.version 'create', create_version
+        required.version 'create', "$minecraft_version-${create_version.replace('-*', '')}"
         required.project 'ocr2'
         optional.project 'oc2r-addon-core'
     }
