@@ -1,4 +1,3 @@
 # Changes
-- Added recipe for the Redstone Link Card
-- Added Creative Motor device with documentation
-- Added Weighted Ejector device with documentation
+- Backported to 0.5.1j
+- Added optional content for Post Production Backported
