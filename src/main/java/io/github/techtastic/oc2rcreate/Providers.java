@@ -1,6 +1,8 @@
 package io.github.techtastic.oc2rcreate;
 
+import io.github.techtastic.oc2rcreate.device.block.creative_motor.CreativeMotorDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.display_link.DisplayLinkDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.block.ejector.EjectorDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.frogport.FrogportDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.packager.PackagerDeviceProvider;
 import io.github.techtastic.oc2rcreate.device.block.postbox.PostboxDeviceProvider;
@@ -53,6 +55,10 @@ public class Providers {
             BLOCK_PROVIDERS.register("stressometer", StressometerDeviceProvider::new);
     public static final RegistryObject<BlockDeviceProvider> TABLE_CLOTH =
             BLOCK_PROVIDERS.register("table_cloth", TableClothDeviceProvider::new);
+    public static final RegistryObject<BlockDeviceProvider> CREATIVE_MOTOR =
+            BLOCK_PROVIDERS.register("creative_motor", CreativeMotorDeviceProvider::new);
+    public static final RegistryObject<BlockDeviceProvider> EJECTOR =
+            BLOCK_PROVIDERS.register("ejector", EjectorDeviceProvider::new);
 
     public static final RegistryObject<ItemDeviceProvider> REDSTONE_LINK =
             ITEM_PROVIDERS.register("redstone_link", RedstoneLinkDeviceProvider::new);
