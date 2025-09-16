@@ -269,7 +269,7 @@ modrinth {
     gameVersions = ['1.20.1']
     loaders = ['forge']
     dependencies {
-        required.version 'create', "$minecraft_version-${create_version.split('-')[0].replace('.j', 'j')}"
+        required.version 'create', "$minecraft_version-${create_version.split('-')[0]}"
         required.project 'oc2r'
         optional.project 'oc2r-addon-core'
         optional.project 'post-production-backported'
