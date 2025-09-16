@@ -32,6 +32,12 @@ public class RedstoneLinkDevice extends AbstractItemRPCDevice implements Documen
         super(identity, "redstone_link");
         this.be = be;
 
+        if (identity.hasTag()) {
+            CompoundTag tag = identity.getOrCreateTag();
+            if (tag.contains("oc2rcreate"))
+                this.deserializeNBT(tag.getCompound("oc2rcreate"));
+        }
+
         if (this.be.getLevel() == null)
             OC2RCreate.DEVICES.computeIfAbsent(be, ignored -> new ArrayList<>()).add(this);
         else
@@ -60,6 +66,7 @@ public class RedstoneLinkDevice extends AbstractItemRPCDevice implements Documen
     }
 
     private void update() {
+        this.identity.getOrCreateTag().put("oc2rcreate", this.serializeNBT());
         Create.REDSTONE_LINK_NETWORK_HANDLER.addToNetwork(this.be.getLevel(), this);
     }
 

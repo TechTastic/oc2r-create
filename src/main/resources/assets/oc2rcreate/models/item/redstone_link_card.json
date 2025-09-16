@@ -1,3 +1,6 @@
 {
-  "parent": "create:item/redstone_link"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "oc2rcreate:item/redstone_link_card"
+  }
 }
