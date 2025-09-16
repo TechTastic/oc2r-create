@@ -2,7 +2,6 @@ package io.github.techtastic.oc2rcreate.device.block.creative_motor;
 
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
 import com.simibubi.create.content.kinetics.motor.KineticScrollValueBehaviour;
-import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import io.github.techtastic.oc2rcreate.device.block.AbstractBlockRPCDevice;
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.DocumentedDevice;
@@ -10,7 +9,6 @@ import li.cil.oc2.api.bus.device.object.Parameter;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 public class CreativeMotorDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final CreativeMotorBlockEntity motor;

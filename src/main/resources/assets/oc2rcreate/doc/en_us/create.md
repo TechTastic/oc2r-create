@@ -7,7 +7,9 @@ This section lists all items with attached devices for the computers to access w
 
 ## Blocks
 This section lists all blocks with attached devices for the computers to access!
+- [Creative Motor](block/creative_motor.md)
 - [Display Link](block/display_link.md)
+- [Weighted Ejector](block/ejector.md)
 - [Frogport](block/frogport.md)
 - [Packager](block/packager.md)
 - [Postbox](block/postbox.md)
