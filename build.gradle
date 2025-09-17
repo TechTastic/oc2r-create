@@ -261,7 +261,7 @@ modrinth {
     projectId = 'ilLP6Q7N'
     changelog = rootProject.file("changelog.md").text
     versionType = 'release'
-    versionNumber = mod_version
+    versionNumber = "$mod_version ${create_version.split('-')[0]}"
     versionName = "$mod_name $mod_version for Create ${create_version.split('-')[0]}"
     uploadFile = jar
     gameVersions = ['1.20.1']
