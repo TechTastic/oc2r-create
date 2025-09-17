@@ -1,8 +1,11 @@
 {
   "replace": false,
   "values": [
+    "create:creative_motor",
     "create:display_link",
+    "create:weighted_ejector",
     "create:package_frogport",
+    "create:mechanical_arm",
     "create:packager",
     "#create:postboxes",
     "create:redstone_requester",

@@ -23,22 +23,6 @@ public class EjectorDevice extends AbstractBlockRPCDevice implements DocumentedD
     }
 
     @Callback
-    public final int getMaxStackSize() throws NoSuchFieldException, IllegalAccessException {
-        Class<EjectorBlockEntity> clazz = EjectorBlockEntity.class;
-        Field field = clazz.getDeclaredField("maxStackSize");
-        field.setAccessible(true);
-        return ((ScrollValueBehaviour) field.get(this.ejector)).getValue();
-    }
-
-    @Callback
-    public final void setMaxStackSize(@Parameter("size") int size) throws NoSuchFieldException, IllegalAccessException {
-        Class<EjectorBlockEntity> clazz = EjectorBlockEntity.class;
-        Field field = clazz.getDeclaredField("maxStackSize");
-        field.setAccessible(true);
-        ((ScrollValueBehaviour) field.get(this.ejector)).setValue(size);
-    }
-
-    @Callback
     public final boolean canLaunch() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         Class<EjectorBlockEntity> clazz = EjectorBlockEntity.class;
         Method method = clazz.getDeclaredMethod("cannotLaunch");
@@ -66,8 +50,6 @@ public class EjectorDevice extends AbstractBlockRPCDevice implements DocumentedD
 
     @Override
     public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-        deviceVisitor.visitCallback("getMaxStackSize").description("Gets the ejected stack size");
-        deviceVisitor.visitCallback("setMaxStackSize").description("Sets the ejected stack size");
         deviceVisitor.visitCallback("canLaunch").description("Determines whether the Ejector is ready to launch");
         deviceVisitor.visitCallback("launch").description("Attempts to trigger a launch");
         deviceVisitor.visitCallback("getTargetPosition").description("Gets the target landing position");

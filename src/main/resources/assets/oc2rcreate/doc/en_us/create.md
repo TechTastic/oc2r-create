@@ -11,6 +11,7 @@ This section lists all blocks with attached devices for the computers to access!
 - [Display Link](block/display_link.md)
 - [Weighted Ejector](block/ejector.md)
 - [Frogport](block/frogport.md)
+- [Mechanical Arm](block/mechanical_arm.md)
 - [Packager](block/packager.md)
 - [Postbox](block/postbox.md)
 - [Redstone Requester](block/redstone_requester.md)

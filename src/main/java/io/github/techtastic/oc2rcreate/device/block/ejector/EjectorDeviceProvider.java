@@ -1,9 +1,7 @@
 package io.github.techtastic.oc2rcreate.device.block.ejector;
 
 import com.simibubi.create.AllBlockEntityTypes;
-import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
 import com.simibubi.create.content.logistics.depot.EjectorBlockEntity;
-import io.github.techtastic.oc2rcreate.device.block.creative_motor.CreativeMotorDevice;
 import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceQuery;
 import li.cil.oc2.api.util.Invalidatable;

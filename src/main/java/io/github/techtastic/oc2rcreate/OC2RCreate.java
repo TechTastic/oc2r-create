@@ -2,6 +2,9 @@ package io.github.techtastic.oc2rcreate;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
+import io.github.techtastic.oc2rcreate.device.BehaviourDeviceProviders;
+import io.github.techtastic.oc2rcreate.device.BlockDeviceProviders;
+import io.github.techtastic.oc2rcreate.device.ItemDeviceProviders;
 import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDevice;
 import io.github.techtastic.oc2rcreate.util.OC2RCoreHandler;
 import li.cil.oc2.common.item.ItemGroup;
@@ -20,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Mod(OC2RCreate.MODID)
 public class OC2RCreate {
-
     public static final String MODID = "oc2rcreate";
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -34,7 +36,11 @@ public class OC2RCreate {
         modEventBus.addListener(this::addToTabs);
 
         Items.register(modEventBus);
-        Providers.register(modEventBus);
+
+        BehaviourDeviceProviders.register(modEventBus);
+        BlockDeviceProviders.register(modEventBus);
+        ItemDeviceProviders.register(modEventBus);
+
         DisplaySources.register(modEventBus);
         Manuals.register(modEventBus);
     }
