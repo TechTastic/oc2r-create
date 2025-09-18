@@ -102,6 +102,14 @@ public class SchematiCannonDevice extends AbstractBlockRPCDevice implements Docu
 
     @Override
     public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-
+        deviceVisitor.visitCallback("getChecklist").description("Gets the checklist of the target schematic");
+        deviceVisitor.visitCallback("getState").description("Gets the state of the cannon");
+        deviceVisitor.visitCallback("setState").description("Sets the state of the cannon");
+        deviceVisitor.visitCallback("getSchematicFile").description("Gets the current schematic file path");
+        deviceVisitor.visitCallback("setSchematicFile").description("Sets the target schematic file");
+        deviceVisitor.visitCallback("setSchematicPosition").description("Deploys the target schematic to the target position");
+        deviceVisitor.visitCallback("getReplaceMode").description("Gets the replace mode of the cannon");
+        deviceVisitor.visitCallback("setReplaceMode").description("Sets the replace mode of the cannon");
+        deviceVisitor.visitCallback("getSchematicProgress").description("Gets progress of the cannon");
     }
 }
