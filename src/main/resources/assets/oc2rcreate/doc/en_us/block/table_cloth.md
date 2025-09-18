@@ -3,7 +3,7 @@
 ![Farmer's Market](tag:create:table_cloths)
 
 This device allows the computer to manipulate the Table Cloth in Shop Mode!
-***Note: Table Cloth has to be a Shop in order for this device to exist!!!!***
+**Note: Table Cloth has to be a Shop in order for this device to exist!!!!**
 
 This is an example of how to access the device.
 *local d = require("devices")*

@@ -1,4 +1,4 @@
-# Weighted Ejector
+# Schematicannon
 
 ![Schem?](block:create:schematicannon)
 

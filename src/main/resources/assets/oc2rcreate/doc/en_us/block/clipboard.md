@@ -1,4 +1,4 @@
-# Weighted Ejector
+# Clipboard
 
 ![Chat, clip that!](block:create:clipboard)
 

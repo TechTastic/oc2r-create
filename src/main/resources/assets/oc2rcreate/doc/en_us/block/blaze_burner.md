@@ -1,4 +1,4 @@
-# Weighted Ejector
+# Blaze Burner
 
 ![Calcifer](block:create:blaze_burner)
 
