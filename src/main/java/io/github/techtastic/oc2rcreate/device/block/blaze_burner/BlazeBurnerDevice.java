@@ -36,6 +36,9 @@ public class BlazeBurnerDevice extends AbstractBlockRPCDevice implements Documen
 
     @Override
     public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-
+        deviceVisitor.visitCallback("getActiveFuel").description("Gets the active fuel item");
+        deviceVisitor.visitCallback("getRemainingBurnTime").description("Gets the remaining burn time of the active fuel item");
+        deviceVisitor.visitCallback("isCreative").description("Determines whether the active fuel item is infinite");
+        deviceVisitor.visitCallback("isStockKeeper").description("Determines whether the burner is a stock keeper");
     }
 }

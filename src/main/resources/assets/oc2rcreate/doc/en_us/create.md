@@ -13,12 +13,16 @@ This section lists all items with attached devices for the computers to access w
 
 ## Blocks
 This section lists all blocks with attached devices for the computers to access!
+- [Blaze Burner](block/blaze_burner.md)
+- [Clipboard](block/clipboard.md)
 - [Display Link](block/display_link.md)
+- [Weighted Ejector](block/ejector.md)
 - [Frogport](block/frogport.md)
 - [Packager](block/packager.md)
 - [Postbox](block/postbox.md)
 - [Redstone Requester](block/redstone_requester.md)
 - [Repackager](block/repackager.md)
+- [Schematicannon](block/schematicannon.md)
 - [Sequenced Gearshift](block/sequenced_gearshift.md)
 - [Speedometer](block/speedometer.md)
 - [Stock Ticker](block/stock_ticker.md)
