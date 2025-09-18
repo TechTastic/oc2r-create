@@ -1,5 +1,7 @@
 package io.github.techtastic.oc2rcreate.device.behaviour.scoll_value;
 
+import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import com.simibubi.create.content.logistics.depot.EjectorBlockEntity;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
@@ -27,6 +29,9 @@ public class ScrollValueBehaviourDeviceProvider<T extends SmartBlockEntity> exte
 
     @Override
     protected @NotNull Invalidatable<Device> getBehaviourDevice(@NotNull BlockDeviceQuery query, @NotNull T sbe, @NotNull ScrollValueBehaviour behaviour, @NotNull Consumer<T> onChanged) {
+        if (sbe instanceof CreativeMotorBlockEntity || sbe instanceof EjectorBlockEntity)
+            return Invalidatable.empty();
+
         if (behaviour instanceof ScrollOptionBehaviour optionBehaviour)
             return Invalidatable.of(new ScrollOptionBehaviourDevice<>(optionBehaviour.get().getDeclaringClass(), optionBehaviour, sbe, onChanged));
         return Invalidatable.of(new ScrollValueBehaviourDevice<>(behaviour, sbe, onChanged));

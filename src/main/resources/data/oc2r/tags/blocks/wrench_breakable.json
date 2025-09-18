@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#create:wrench_pickup",
+      "required": false
+    }
+  ]
+}

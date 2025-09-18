@@ -23,18 +23,19 @@ public class ScrollValueBehaviourDevice<T extends SmartBlockEntity> extends Abst
     }
 
     @Callback
-    public final int getScrollValue() {
+    public int getScrollValue() {
         return this.scrollValue.getValue();
     }
 
     @Callback
-    public final void setScrollValue(@Parameter("value") int value) {
+    public void setScrollValue(@Parameter("value") int value) {
         this.scrollValue.setValue(value);
         this.onChangedCallback.accept(this.sbe);
     }
 
     @Override
     public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-
+        deviceVisitor.visitCallback("getScrollValue").description("Gets the configured scroll value");
+        deviceVisitor.visitCallback("setScrollValue").description("Configures the scroll value");
     }
 }

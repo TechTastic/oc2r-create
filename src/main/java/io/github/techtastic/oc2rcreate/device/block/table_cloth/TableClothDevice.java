@@ -35,28 +35,6 @@ public class TableClothDevice extends AbstractBlockRPCDevice implements Document
     }
 
     @Callback
-    public final ItemStack getPriceTag() {
-        return this.table.priceTag.getFilter();
-    }
-
-    @Callback
-    public final void setPriceTagItem() {
-        setPriceTag(ItemStack.EMPTY);
-    }
-
-    @Callback
-    public final void setPriceTagItem(@Parameter("item") String id) {
-        setPriceTag(new ItemStack(ForgeRegistries.ITEMS.getDelegateOrThrow(ResourceLocation.tryParse(id)).value()));
-    }
-
-    @Callback
-    public final void setPriceTagItem(@Parameter("item") LinkedTreeMap<String, Object> item) {
-        if (!(item.get("id") instanceof String id) || !(item.getOrDefault("count", 1) instanceof Integer count))
-            throw new IllegalArgumentException("Expected a table with at least \"id\", got " + item + "!");
-        setPriceTag(new ItemStack(ForgeRegistries.ITEMS.getDelegateOrThrow(ResourceLocation.tryParse(id)).value(), count));
-    }
-
-    @Callback
     public final void setPriceTagCount() {
         this.table.priceTag.count = 1;
         this.table.notifyUpdate();
@@ -92,10 +70,6 @@ public class TableClothDevice extends AbstractBlockRPCDevice implements Document
         }).toList();
         this.table.requestData.encodedRequest = PackageOrderWithCrafts.simple(list);
         this.table.notifyUpdate();
-    }
-
-    private void setPriceTag(ItemStack item) {
-        this.table.priceTag.setFilter(item);
     }
 
     @Override

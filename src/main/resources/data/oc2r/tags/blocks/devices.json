@@ -2,20 +2,20 @@
   "replace": false,
   "values": [
     "create:creative_motor",
+    "create:clipboard",
     "create:display_link",
     "create:weighted_ejector",
     "create:package_frogport",
-    "create:mechanical_arm",
     "create:packager",
     "#create:postboxes",
     "create:redstone_requester",
     "create:repackager",
+    "create:schematicannon",
     "create:sequenced_gearshift",
-    "create:rotation_speed_controller",
     "create:speedometer",
-    "create:track_station",
     "create:stock_ticker",
     "create:stressometer",
-    "#create:table_cloths"
+    "#create:table_cloths",
+    "create:track_station"
   ]
 }

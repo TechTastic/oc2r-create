@@ -1,9 +1,11 @@
 package io.github.techtastic.oc2rcreate.device.behaviour.filtering;
 
+import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.filtering.FilteringBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.filtering.SidedFilteringBehaviour;
 import io.github.techtastic.oc2rcreate.device.behaviour.AbstractBehaviourDeviceProvider;
+import io.github.techtastic.oc2rcreate.device.behaviour.filtering.custom.TableClothFilteringBehaviourDevice;
 import li.cil.oc2.api.bus.device.Device;
 import li.cil.oc2.api.bus.device.provider.BlockDeviceQuery;
 import li.cil.oc2.api.util.Invalidatable;
@@ -27,6 +29,9 @@ public class FilteringBehaviourDeviceProvider<T extends SmartBlockEntity> extend
 
     @Override
     protected @NotNull Invalidatable<Device> getBehaviourDevice(@NotNull BlockDeviceQuery query, @NotNull T sbe, @NotNull FilteringBehaviour behaviour, @NotNull Consumer<T> onChanged) {
+        if (sbe instanceof TableClothBlockEntity)
+            return Invalidatable.empty();
+
         if (behaviour instanceof SidedFilteringBehaviour sided)
             return Invalidatable.of(new FilteringBehaviourDevice<>(sided.get(query.getQuerySide()), sbe, onChanged));
         return Invalidatable.of(new FilteringBehaviourDevice<>(behaviour, sbe, onChanged));

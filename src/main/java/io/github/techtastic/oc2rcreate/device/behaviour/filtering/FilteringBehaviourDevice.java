@@ -26,23 +26,23 @@ public class FilteringBehaviourDevice<T extends SmartBlockEntity> extends Abstra
     }
 
     @Callback
-    public final ItemStack getFilter() {
+    public ItemStack getFilter() {
         return this.filtering.getFilter();
     }
 
     @Callback
-    public final void setFilter() {
+    public void setFilter() {
         this.filtering.setFilter(ItemStack.EMPTY);
         this.onChangedCallback.accept(this.sbe);
     }
 
     @Callback
-    public final void setFilter(@Parameter("id") String id) {
+    public void setFilter(@Parameter("id") String id) {
         this.setFilter(id, 1);
     }
 
     @Callback
-    public final void setFilter(@Parameter("id") String id, @Parameter("count") int count) {
+    public void setFilter(@Parameter("id") String id, @Parameter("count") int count) {
         this.filtering.setFilter(new ItemStack(
                 ForgeRegistries.ITEMS.getDelegateOrThrow(ResourceLocation.tryParse(id)).value(),
                 count
