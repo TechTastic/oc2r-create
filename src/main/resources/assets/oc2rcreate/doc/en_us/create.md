@@ -1,5 +1,11 @@
 # Create Integration
-Welcome to the Create Integration section added by **OC2R: Create**! This section lists all the existing integrations between OC2R and Create, both of the blocks and of the items!
+Welcome to the Create Integration section added by **OC2R: Create**! This section lists all the existing integrations between OC2R and Create, of its Blocks, Items, and even Behaviours!
+
+## Behaviours
+This section lists all behaviours with associated devices for computers to access on **any** Smart Block Entity with the corresponding behaviour!
+- [Filtering Behaviour](behaviour/filtering.md)
+- [Scroll Option Behaviour](behaviour/scroll_option.md)
+- [Scroll Value Behaviour](behaviour/scroll_value.md)
 
 ## Items
 This section lists all items with attached devices for the computers to access when installed!
@@ -7,19 +13,14 @@ This section lists all items with attached devices for the computers to access w
 
 ## Blocks
 This section lists all blocks with attached devices for the computers to access!
-- [Creative Motor](block/creative_motor.md)
 - [Display Link](block/display_link.md)
-- [Weighted Ejector](block/ejector.md)
 - [Frogport](block/frogport.md)
-- [Mechanical Arm](block/mechanical_arm.md)
 - [Packager](block/packager.md)
 - [Postbox](block/postbox.md)
 - [Redstone Requester](block/redstone_requester.md)
 - [Repackager](block/repackager.md)
 - [Sequenced Gearshift](block/sequenced_gearshift.md)
-- [Rotation Speed Controller](block/rotation_speed_controller.md)
 - [Speedometer](block/speedometer.md)
 - [Stock Ticker](block/stock_ticker.md)
 - [Stressometer](block/stressometer.md)
-- [Table Cloth](block/table_cloth.md)
 - [Train Station](block/train_station.md)

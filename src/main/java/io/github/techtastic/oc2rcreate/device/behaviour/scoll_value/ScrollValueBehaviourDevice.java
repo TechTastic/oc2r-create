@@ -34,8 +34,5 @@ public class ScrollValueBehaviourDevice<T extends SmartBlockEntity> extends Abst
     }
 
     @Override
-    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-        deviceVisitor.visitCallback("getScrollValue").description("Gets the configured scroll value");
-        deviceVisitor.visitCallback("setScrollValue").description("Configures the scroll value");
-    }
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {}
 }

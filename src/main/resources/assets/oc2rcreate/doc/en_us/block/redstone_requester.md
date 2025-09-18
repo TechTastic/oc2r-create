@@ -34,12 +34,12 @@ This method triggers a request to be sent.
 
 *setRequest(items:table)*
 This method sets the items to be requested.
-- *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{\["id"\] = "minecraft:dirt", \["Count"\] = 1}*).
+- *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{["id"] = "minecraft:dirt", ["Count"] = 1}*).
 
 *setCraftingRequest(count:number, items:table)*
 This method sets the items to be crafted.
 - *count* is a number representing the total amount of each item to craft.
-- *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{\["id"\] = "minecraft:dirt", \["Count"\] = 1}*).
+- *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{["id"] = "minecraft:dirt", ["Count"] = 1}*).
 
 *getRequest():table*
 This method gets the current request.

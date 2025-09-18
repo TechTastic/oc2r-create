@@ -44,8 +44,5 @@ public class ScrollOptionBehaviourDevice<E extends Enum<E> & INamedIconOptions, 
     }
 
     @Override
-    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-        deviceVisitor.visitCallback("getScrollOption").description("Gets the configured scroll option");
-        deviceVisitor.visitCallback("setScrollValue").description("Configures the scroll option");
-    }
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {}
 }

@@ -13,16 +13,16 @@ This is an example of how to access the device.
 Device name: *sequenced_gearshift*
 
 ### Methods
-*rotate(angle:number\[,speedModifier:number\])*
+*rotate(angle:number[,speedModifier:number])*
 This method executes a *turn_angle* instruction by the given angle and speed modifier if provided.
 - *angle* is a number representing the target angle to reach.
 - *speedModifier* is a number representing the speed at which the instruction should execute.
 
-*move(distance:number\[,speedModifier:number\])*
+*move(distance:number[,speedModifier:number])*
 This method executes a *turn_distance* instruction by the given distance and speed modifier if provided.
 - *distance* is a number representing the target distance to reach.
 - *speedModifier* is a number representing the speed at which the instruction should execute.
 
 *isRunning():boolean*
 This method determines if the gearshift is currently executing an instruction.
-- Returns whether or not the gearshift is currently not idle.
+- Returns whether the gearshift is not currently idle.

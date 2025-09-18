@@ -51,7 +51,5 @@ public class FilteringBehaviourDevice<T extends SmartBlockEntity> extends Abstra
     }
 
     @Override
-    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
-
-    }
+    public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {}
 }
