@@ -1,14 +1,2 @@
 # Changes
-- Added behaviour-based devices and removed certain methods and overlapping existing devices
-  - Behaviours
-    - Filtering
-    - Scroll Value
-    - Scroll Option
-- Updated documentation
-- Expanded block tag usages
-  - `create:fan_transparent`
-  - `create:non_movable`
-  - `create:wrench_pickup`
-  - `oc2r:wrench_breakable`
-  - `oc2r:devices`
-- Fixed Redstone Link Card recipe
+- Updated missing documentation
