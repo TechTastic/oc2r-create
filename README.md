@@ -5,20 +5,28 @@
 
 This is accomplished by mimicking Create's existing CC: Tweaked peripherals using OC2R's Device system as well as adding some new ones of our own.
 
-### List of Existing Block-based Devices:
-- Display Link (`display_link`)
-- Frogport (`frogport`)
-- Packager (`packager`)
-- Postbox (`postbox`)
-- Redstone Requester (`redstone_requester`)
-- Repackager (`repackager`)
-- Sequenced Gearshift (`sequenced_gearshift`)
-- Rotation Speed Controller (`rotation_speed_controller`)
-- Speedometer (`speedometer`)
-- Stock Ticker (`stock_ticker`)
-- Stressometer (`stressometer`)
-- Table Cloth (`table_cloth`)
-- Train Station (`train_station`)
+## Behaviours
+- [Filtering Behaviour](https://github.com/TechTastic/oc2r-create/wiki/Filtering)
+- [Scroll Option Behaviour](https://github.com/TechTastic/oc2r-create/wiki/Scroll-Option)
+- [Scroll Value Behaviour](https://github.com/TechTastic/oc2r-create/wiki/Scroll-Value)
 
-### List of Existing Item-based Devices:
-- Redstone Link Card (`redstone_link`)
+## Items
+- [Redstone Link Card](https://github.com/TechTastic/oc2r-create/wiki/Redstone-Link-Card)
+
+## Blocks
+- [Blaze Burner](https://github.com/TechTastic/oc2r-create/wiki/Blaze-Burner)
+- [Clipboard](https://github.com/TechTastic/oc2r-create/wiki/Clipboard)
+- [Display Link](https://github.com/TechTastic/oc2r-create/wiki/Display-Link)
+- [Weighted Ejector](https://github.com/TechTastic/oc2r-create/wiki/Weighted-Ejector)
+- [Frogport](https://github.com/TechTastic/oc2r-create/wiki/Frogport)
+- [Packager](https://github.com/TechTastic/oc2r-create/wiki/Packager)
+- [Postbox](https://github.com/TechTastic/oc2r-create/wiki/Postbox)
+- [Redstone Requester](https://github.com/TechTastic/oc2r-create/wiki/Redstone-Requester)
+- [Repackager](https://github.com/TechTastic/oc2r-create/wiki/Repackager)
+- [Schematicannon](https://github.com/TechTastic/oc2r-create/wiki/Schematicannon)
+- [Sequenced Gearshift](https://github.com/TechTastic/oc2r-create/wiki/Sequenced-Gearshift)
+- [Speedometer](https://github.com/TechTastic/oc2r-create/wiki/Speedometer)
+- [Stock Ticker](https://github.com/TechTastic/oc2r-create/wiki/Stock-Ticker)
+- [Stressometer](https://github.com/TechTastic/oc2r-create/wiki/Stressometer)
+- [Table Cloth](https://github.com/TechTastic/oc2r-create/wiki/Table-Cloth)
+- [Train Station](https://github.com/TechTastic/oc2r-create/wiki/Train-Station)
