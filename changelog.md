@@ -1,2 +1,0 @@
-# Changes
-- Updated missing documentation

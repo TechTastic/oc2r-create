@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "#oc2r:wrench_breakable",
-      "required": false
-    }
-  ]
-}
