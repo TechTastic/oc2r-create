@@ -41,7 +41,7 @@ jobs:
           find . -name "*.md" -exec bash -c 'file="$1"; permalink="/${file#./}"; permalink="${permalink%.md}"; sed -i "lipermalink: $permalink" "$file"' _ {} \;
           find . -name "*.md" -exec sed -i '1ilayout: default' {} \;
           find . -name "*.md" -exec sed -i '1i---' {} \;
-          find . -name "*.md" -exec sed -i 's/md)/html)/g' {} \;
+          find . -name "*.md" -exec sed -i 's/(\([^)]*\)\.md)/(\1)/g' {} \;
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
