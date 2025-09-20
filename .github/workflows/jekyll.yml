@@ -40,6 +40,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Moving documentation to Pages
+        run: 
+          git checkout 1.20.1/gh-pages
+          git checkout 1.20.1/create6 -- /src/main/resuorces/assets/oc2rcreate/doc/en_us/
+          cp -R /src/main/resuorces/assets/oc2rcreate/doc/en_us/ /
+          rm /index.md
+          cp /create.md /index.md
+          git add .
+          git commit -m "New documentation push"
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
