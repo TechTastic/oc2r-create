@@ -28,10 +28,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+    
+      - name: Checkout main branch
         uses: actions/checkout@v4
-      - name: Checking out pages branch
-        run: git checkout gh-pages
+        with:
+          path: main-branch-content # Checkout to a separate directory
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-content # Checkout to a separate directory
+      - name: Copy documentation to gh-pages
+        run: cp -R main-branch-content/src/resources/assets/oc2rcreate/doc/en_us/* gh-pages-content
+      - name: Final Adjustments then Add and Commit
+        working-directory: gh-pages-content
+        run: |
+          cp -f /create.md /index.md
+          git add .
+          git commit -m "Documentation Sync"
+
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
@@ -42,17 +57,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Moving documents to pages branch
-        run: git checkout 1.20.1/create6 -- /src/main/resuorces/assets/oc2rcreate/doc/en_us/
-      - name: Moving documents to correct directory
-        run: cp -Rf /src/main/resuorces/assets/oc2rcreate/doc/en_us/ /
-      - name: Rename create to index
-        run: cp -f /create.md /index.md
-      - name: Add and Commit
-        run:
-          git add .
-          git commit -m "New documentation push"
       - name: Build with Jekyll
+        working-directory: gh-pages-content
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
