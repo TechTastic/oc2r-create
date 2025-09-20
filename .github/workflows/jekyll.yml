@@ -40,9 +40,9 @@ jobs:
 
           git fetch origin
           
-          git checkout origin/1.20.1/create6 -- /src/main/resources/assets/oc2rcreate/doc/en_us/
-          sudo mv /src/main/resources/assets/oc2rcreate/doc/en_us/ .
-          sudo rm -R /src
+          git checkout origin/1.20.1/create6 -- src/main/resources/assets/oc2rcreate/doc/en_us/
+          sudo cp src/main/resources/assets/oc2rcreate/doc/en_us/ .
+          sudo rm -R src
           sudo cp -f ./create.md ./index.md
           
           git add .
