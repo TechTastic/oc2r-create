@@ -37,10 +37,26 @@ jobs:
           rm ./create.md
       - name: Add configuration to documents
         run: |
-          find . -name "*.md" -exec sed -i '1i---' {} \;
-          find . -name "*.md" -exec bash -c 'file="$1"; permalink="/${file#./}"; permalink="${permalink%.md}"; sed -i "lipermalink: $permalink" "$file"' _ {} \;
-          find . -name "*.md" -exec sed -i '1ilayout: default' {} \;
-          find . -name "*.md" -exec sed -i '1i---' {} \;
+          find . -name "*.md" -exec base -c '
+            file="$1"
+            echo "Processing $file..."
+          
+            title=$(grep -m 1 "^#[^#]" "file")
+          
+            permalink="/${file#./}"
+            permalink="${permalink%.md}"
+          
+            {
+              echo "---"
+              echo "layout: default"
+              echo "permalink: $permalink"
+              echo "title: \"$title\""
+              echo "---"
+              echo ""
+              cat "$file"
+            } > "$file.tmp"
+            mv "$file.tmp" "$file"
+          ' _ {} \;
           find . -name "*.md" -exec sed -i 's/(\([^)]*\)\.md)/(\1)/g' {} \;
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
