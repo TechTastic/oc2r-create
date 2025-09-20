@@ -46,7 +46,72 @@ jobs:
           
             permalink="/${file#./}"
             permalink="${permalink%.md}"
-          
+
+            temp_file="$file.processing"
+            in_code_example=false
+
+            while IFS= read -r line || [[ -n "$line" ]]; do
+              # Skip empty lines but preserve them
+              if [[ -z "$line" ]]; then
+                echo "$line"
+                continue
+              fi
+              
+              # Check for "This is an example" section start
+              if [[ "$line" == *"This is an example"* ]]; then
+                echo "$line"
+                in_code_example=true
+                continue
+              fi
+              
+              # Check for API section (ends code example)
+              if [[ "$line" =~ ^##[[:space:]]*API ]]; then
+                in_code_example=false
+                echo "$line"
+                continue
+              fi
+              
+              # If we are in a code example section
+              if [[ "$in_code_example" == true ]]; then
+                # Convert lines that are entirely wrapped in * to code blocks
+                if [[ "$line" =~ ^\*.*\*$ ]]; then
+                  code_content="${line#\*}"
+                  code_content="${code_content%\*}"
+                  echo '```lua'
+                  echo "$code_content"
+                  echo '```'
+                  continue
+                fi
+              fi
+              
+              # Handle device names (like "Device name: *redstone_link*")
+              if [[ "$line" =~ Device\ name: ]]; then
+                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+                continue
+              fi
+              
+              # Handle method signatures (lines starting with *)
+              if [[ "$line" =~ ^\*[a-zA-Z] ]]; then
+                echo "$line" | sed 's/^\*\(.*\)\*$/`\1`/g'
+                continue
+              fi
+              
+              # Handle inline code in bullet points and descriptions
+              if [[ "$line" =~ - ]]; then
+                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+                continue
+              fi
+              
+              # Handle any remaining *text* patterns as inline code
+              if [[ "$line" =~ \*[^*]*\* ]]; then
+                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+                continue
+              fi
+              
+              # Regular line, output as-is
+              echo "$line"
+            done < "$file" > "$temp_file"
+            
             {
               echo "---"
               echo "layout: default"
@@ -54,9 +119,10 @@ jobs:
               echo "title: \"$title\""
               echo "---"
               echo ""
-              cat "$file"
+              cat "$temp_file"
             } > "$file.tmp"
             mv "$file.tmp" "$file"
+            rm "$temp_file"
           ' _ {} \;
           find . -name "*.md" -exec sed -i 's/(\([^)]*\)\.md)/(\1)/g' {} \;
       - name: Setup Ruby
