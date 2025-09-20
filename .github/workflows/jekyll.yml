@@ -45,7 +45,7 @@ jobs:
           rm ./create.md
       - name: Add configuration to documents
         run: |
-          for file in *.md; do
+          for file in ./*.md; do
             sed -i '--' ${file}.md
             sed -i '--' ${file}.md
           done
