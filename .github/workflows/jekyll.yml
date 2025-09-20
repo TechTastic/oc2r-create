@@ -39,7 +39,7 @@ jobs:
           ref: gh-pages
           path: gh-pages-content # Checkout to a separate directory
       - name: Copy documentation to gh-pages
-        run: cp -R main-branch-content/src/resources/assets/oc2rcreate/doc/en_us/* gh-pages-content
+        run: cp -R main-branch-content/src/main/resources/assets/oc2rcreate/doc/en_us/* gh-pages-content
       - name: Final Adjustments then Add and Commit
         working-directory: gh-pages-content
         run: |
