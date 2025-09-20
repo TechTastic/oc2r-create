@@ -46,6 +46,10 @@ jobs:
           
             permalink="/${file#./}"
             permalink="${permalink%.md}"
+
+            # code_block=$(grep "^\*$" "$file")
+            # formatted_code_block=$(echo $code_block | tr "\*" "")
+            
             
             {
               echo "---"
