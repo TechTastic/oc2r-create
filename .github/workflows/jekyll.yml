@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checking out pages branch
+        run: git checkout 1.20.1/gh-pages
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
@@ -40,13 +42,14 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Moving documentation to Pages
-        run: 
-          git checkout 1.20.1/gh-pages
-          git checkout 1.20.1/create6 -- /src/main/resuorces/assets/oc2rcreate/doc/en_us/
-          cp -R /src/main/resuorces/assets/oc2rcreate/doc/en_us/ /
-          rm /index.md
-          cp /create.md /index.md
+      - name: Moving documents to pages branch
+        run: git checkout 1.20.1/create6 -- /src/main/resuorces/assets/oc2rcreate/doc/en_us/
+      - name: Moving documents to correct directory
+        run: cp -Rf /src/main/resuorces/assets/oc2rcreate/doc/en_us/ /
+      - name: Rename create to index
+        run: cp -f /create.md /index.md
+      - name: Add and Commit
+        run:
           git add .
           git commit -m "New documentation push"
       - name: Build with Jekyll
