@@ -29,24 +29,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - name: Checkout main branch
-        uses: actions/checkout@v4
-        with:
-          path: main-branch-content # Checkout to a separate directory
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages-content # Checkout to a separate directory
-      - name: Copy documentation to gh-pages
-        run: cp -R main-branch-content/src/main/resources/assets/oc2rcreate/doc/en_us/* gh-pages-content
-      - name: Final Adjustments then Add and Commit
-        working-directory: gh-pages-content
+      - name: Copy documentation to gh-pages and Commit
         run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          
+          git checkout 1.20.1/create6 -- src/main/resources/assets/oc2rcreate/doc/en_us/
+          cp -Rf src/main/resources/assets/oc2rcreate/doc/en_us/ /
+          rm -R src
           cp -f create.md index.md
+          
           git add .
           git commit -m "Documentation Sync"
-
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
@@ -58,7 +56,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
-        working-directory: gh-pages-content
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
