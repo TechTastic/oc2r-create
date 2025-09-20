@@ -43,7 +43,7 @@ jobs:
       - name: Final Adjustments then Add and Commit
         working-directory: gh-pages-content
         run: |
-          cp -f /create.md /index.md
+          cp -f gh-pages-content/create.md gh-pages-content/index.md
           git add .
           git commit -m "Documentation Sync"
 
