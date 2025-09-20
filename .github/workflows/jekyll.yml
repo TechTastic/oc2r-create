@@ -65,7 +65,7 @@ jobs:
               fi
               
               # Check for API section (ends code example)
-              if [[ "$line" =~ ^##[[:space:]]*API ]]; then
+              if [[ "$line" == "## API" ]]; then
                 in_code_example=false
                 echo "$line"
                 continue
@@ -75,36 +75,36 @@ jobs:
               if [[ "$in_code_example" == true ]]; then
                 # Convert lines that are entirely wrapped in * to code blocks
                 if [[ "$line" =~ ^\*.*\*$ ]]; then
-                  code_content="${line#\*}"
-                  code_content="${code_content%\*}"
-                  echo '```lua'
+                  code_content="${line#*}"
+                  code_content="${code_content%*}"
+                  echo "```lua"
                   echo "$code_content"
-                  echo '```'
+                  echo "```"
                   continue
                 fi
               fi
               
               # Handle device names (like "Device name: *redstone_link*")
-              if [[ "$line" =~ Device\ name: ]]; then
-                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+              if [[ "$line" == *"Device name:"* ]]; then
+                echo "$line" | sed "s/\*\([^*]*\)\*/\`\1\`/g"
                 continue
               fi
               
               # Handle method signatures (lines starting with *)
               if [[ "$line" =~ ^\*[a-zA-Z] ]]; then
-                echo "$line" | sed 's/^\*\(.*\)\*$/`\1`/g'
+                echo "$line" | sed "s/^\*\(.*\)\*$/\`\1\`/"
                 continue
               fi
               
               # Handle inline code in bullet points and descriptions
-              if [[ "$line" =~ - ]]; then
-                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+              if [[ "$line" == *"- "* ]]; then
+                echo "$line" | sed "s/\*\([^*]*\)\*/\`\1\`/g"
                 continue
               fi
               
               # Handle any remaining *text* patterns as inline code
-              if [[ "$line" =~ \*[^*]*\* ]]; then
-                echo "$line" | sed 's/\*\([^*]*\)\*/`\1`/g'
+              if [[ "$line" == *"*"*"*"* ]]; then
+                echo "$line" | sed "s/\*\([^*]*\)\*/\`\1\`/g"
                 continue
               fi
               
