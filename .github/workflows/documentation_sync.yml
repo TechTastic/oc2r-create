@@ -1,0 +1,29 @@
+name: Sync Project Documentation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['1.20.1/create6']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Copy documentation to gh-pages and Commit
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+
+          git fetch origin
+          
+          git checkout origin/1.20.1/create6 -- src/main/resources/assets/oc2rcreate/doc/en_us/
+          sudo cp -R src/main/resources/assets/oc2rcreate/doc/en_us/ .
+          sudo rm -R src
+          sudo cp -f ./create.md ./index.md
+          
+          git add .
+          git commit -m "Documentation Sync"
