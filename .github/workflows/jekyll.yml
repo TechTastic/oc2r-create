@@ -46,6 +46,8 @@ jobs:
       - name: Add configuration to documents
         run: |
           find . -name "*.md" -exec sed -i '1i--' {} \;
+          find . -name "*.md" -exec sed -i 'l1permalink: '+{} {} \;
+          find . -name "*.md" -exec sed -i '1ilayout: page` {} \;
           find . -name "*.md" -exec sed -i '1i--' {} \;
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
