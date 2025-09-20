@@ -1,9 +1,31 @@
----
----
+# Create Integration
+Welcome to the Create Integration section added by **OC2R: Create**! This section lists all the existing integrations between OC2R and Create, of its Blocks, Items, and even Behaviours!
 
-Welcome to My Home Page
+## Behaviours
+This section lists all behaviours with associated devices for computers to access on **any** Smart Block Entity with the corresponding behaviour!
+- [Filtering Behaviour](behaviour/filtering.md)
+- [Scroll Option Behaviour](behaviour/scroll_option.md)
+- [Scroll Value Behaviour](behaviour/scroll_value.md)
 
-{% assign date = '2020-04-13T10:20:00Z' %}
+## Items
+This section lists all items with attached devices for the computers to access when installed!
+- [Redstone Link Card](item/redstone_link.md)
 
-- Original date - {{ date }}
-- With timeago filter - {{ date | timeago }}
+## Blocks
+This section lists all blocks with attached devices for the computers to access!
+- [Blaze Burner](block/blaze_burner.md)
+- [Clipboard](block/clipboard.md)
+- [Display Link](block/display_link.md)
+- [Weighted Ejector](block/ejector.md)
+- [Frogport](block/frogport.md)
+- [Packager](block/packager.md)
+- [Postbox](block/postbox.md)
+- [Redstone Requester](block/redstone_requester.md)
+- [Repackager](block/repackager.md)
+- [Schematicannon](block/schematicannon.md)
+- [Sequenced Gearshift](block/sequenced_gearshift.md)
+- [Speedometer](block/speedometer.md)
+- [Stock Ticker](block/stock_ticker.md)
+- [Stressometer](block/stressometer.md)
+- [Table Cloth](block/table_cloth.md)
+- [Train Station](block/train_station.md)
