@@ -21,10 +21,7 @@ jobs:
           git fetch origin
           
           git checkout origin/1.20.1/create6 -- src/main/resources/assets/oc2rcreate/doc/en_us/
-          sudo mv ./src/main/resources/assets/oc2rcreate/doc/en_us/ ./
+           rsync -a src/main/resources/assets/oc2rcreate/doc/en_us/ ./. --remove-source-files
           ls .
-          sudo rm -R ./src
-          ls .
-          
           git add .
           git commit -m "Documentation Sync"
