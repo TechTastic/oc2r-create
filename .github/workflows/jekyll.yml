@@ -41,9 +41,9 @@ jobs:
           git fetch origin
           
           git checkout origin/1.20.1/create6 -- src/main/resources/assets/oc2rcreate/doc/en_us/
-          cp -Rf src/main/resources/assets/oc2rcreate/doc/en_us/ /
-          rm -R src
-          cp -f create.md index.md
+          sudo cp -Rf src/main/resources/assets/oc2rcreate/doc/en_us/ /
+          sudo rm -R src
+          sudo cp -f create.md index.md
           
           git add .
           git commit -m "Documentation Sync"
