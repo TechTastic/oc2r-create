@@ -45,10 +45,8 @@ jobs:
           rm ./create.md
       - name: Add configuration to documents
         run: |
-          for file in ./*.md; do
-            sed -i '--' ${file}.md
-            sed -i '--' ${file}.md
-          done
+          find . -name "*.md" -exec sed -i '1i--' {} \;
+          find . -name "*.md" -exec sed -i '1i--' {} \;
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
