@@ -41,7 +41,8 @@ jobs:
             file="$1"
             echo "Processing $file..."
           
-            title=$({grep -m 1 "^#[^#]" "$file"}:2)
+            title=$(grep -m 1 "^#[^#]" "$file")
+            title="${title:2}"
           
             permalink="/${file#./}"
             permalink="${permalink%.md}"
