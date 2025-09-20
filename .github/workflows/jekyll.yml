@@ -37,8 +37,8 @@ jobs:
           rm ./create.md
       - name: Add configuration to documents
         run: |
-          find . -name "*.md" -exec base -c '
-            file="$1"
+          find . -name "*.md" -exec bash -c '
+            $file="$1"
             echo "Processing $file..."
           
             title=$(grep -m 1 "^#[^#]" "file")
