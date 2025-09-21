@@ -18,8 +18,8 @@ p code, li code {
 .highlight, .highlighter-rouge {
   border: 1px solid #ddd !important;
   border-radius: 6px !important;
-  padding: 4px !important;
-  margin: 4px 0 !important;
+  padding: 2px !important;
+  margin: 2px 0 !important;
   background-color: #f8f8f8 !important;
   overflow-x: auto !important;
 }
