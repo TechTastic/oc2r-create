@@ -35,6 +35,11 @@ jobs:
           rsync -a src/main/resources/assets/oc2rcreate/doc/en_us/ ./. --remove-source-files
           cp -f ./create.md ./index.md
           rm ./create.md
+      - name: Remove Item and Block Image References
+        run: |
+          find . -name "*.md" -type f | while read -r file; do
+            sed -i '/!\[.*\](.*)/d' "$file"
+          done
       - name: Convert big Lua code blocks
         run: |
           find . -name "*.md" -type f | while read -r file; do
