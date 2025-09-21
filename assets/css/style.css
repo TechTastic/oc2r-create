@@ -11,6 +11,6 @@
   font-weight: bold;
 }
 
-body, pre, code {
-  font-family: "Monocraft", monospace;
+body, code, pre, pre code, .highlight, .codehilite {
+  font-family: 'Monocraft', monospace !important;
 }
