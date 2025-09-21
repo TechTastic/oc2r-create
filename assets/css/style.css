@@ -1,16 +1,8 @@
 @font-face {
   font-family: Monocraft;
   src: url(Monocraft.ttf);
-  font-weight: normal;
-  font-style: normal;
 }
 
-@font-face {
-  font-family: Monocraft;
-  src: url(Monocraft.ttf) format("ttf");
-  font-weight: bold;
-}
-
-body, code, pre, pre code, .highlight, .codehilite {
+* {
   font-family: 'Monocraft', monospace !important;
 }
