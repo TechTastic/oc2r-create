@@ -90,8 +90,28 @@ jobs:
         run: |
           find . -name "*.md" -type f | while read -r file; do
             echo "Fixing method signatures in $file..."
-            # Add line breaks after method signatures followed by descriptions
-            sed -i '/^[[:space:]]*[-*+]/!{/Device name:/!{s/`\([^`]*\)` \([A-Z]\)/`\1`\n\n\2/g}}' "$file"
+            awk '
+            {
+                # Skip bullet lists and device name lines
+                if ($0 ~ /^[[:space:]]*[-*+][[:space:]]/ || $0 ~ /Device name:/) {
+                    print $0
+                } 
+                # Look for method signatures: `text` followed by space and capital letter
+                else if ($0 ~ /`[^`]+`[[:space:]]+[A-Z]/) {
+                    # Split the line at the boundary
+                    if (match($0, /(`[^`]+`)[[:space:]]+(.*)/, arr)) {
+                        print arr[1]  # method signature
+                        print ""      # blank line
+                        print arr[2]  # description
+                    } else {
+                        print $0
+                    }
+                }
+                else {
+                    print $0
+                }
+            }
+            ' "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
             echo "Completed method signature fix for $file"
           done
       - name: Adding Jekyll Configuration
