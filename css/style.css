@@ -24,6 +24,19 @@ p code, li code {
   overflow-x: auto !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  .highlight, .highlighter-rouge {
+    background-color: #2d2d2d !important;
+    border: 1px solid #444 !important;
+    color: #f8f8f8 !important;
+  }
+
+  body {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+  }
+}
+
 .highlight pre, .highlighter-rouge pre {
   margin: 0 !important;
   padding: 0 !important;
