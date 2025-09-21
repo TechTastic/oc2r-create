@@ -7,30 +7,30 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
   </head>
   <body>
-    <nav>
+    <nav id="sidebar">
       <a href="{{ site.baseurl }}">Home</a>
       <strong>Behaviours</strong>
       <ul>
         {% for page in site.html_pages %}
-        {% if page.url contains '/behaviour/'}
-        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-        {% endif %}
+          {% if page.url contains '/behaviour/'}
+            <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
         {% endfor %}
       </ul>
       <strong>Items</strong>
       <ul>
         {% for page in site.html_pages %}
-        {% if page.url contains '/item/'}
-        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-        {% endif %}
+          {% if page.url contains '/item/'}
+            <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
         {% endfor %}
       </ul>
       <strong>Blocks</strong>
       <ul>
         {% for page in site.html_pages %}
-        {% if page.url contains '/block/'}
-        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-        {% endif %}
+          {% if page.url contains '/block/'}
+            <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
         {% endfor %}
       </ul>
     </nav>
