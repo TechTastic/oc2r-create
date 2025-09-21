@@ -1,6 +1,8 @@
 @font-face {
   font-family: Monocraft;
   src: url(Monocraft.ttf);
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -9,6 +11,6 @@
   font-weight: bold;
 }
 
-body {
+body, pre, code {
   font-family: "Monocraft", monospace;
 }
