@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Monocraft;
+  src: url(Monocraft.ttf);
+}
+
+@font-face {
+  font-family: Monocraft;
+  src: url(Monocraft.ttf) format("ttf");
+  font-weight: bold;
+}
+
+body {
+  font-family: "Monocraft", monospace;
+}
