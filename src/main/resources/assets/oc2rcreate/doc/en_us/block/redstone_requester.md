@@ -13,34 +13,34 @@ This is an example of how to access the device.
 Device name: *redstone_requester*
 
 ### Methods
-*getAddress():string*
+*getAddress():string*  
 This method retrieves the target address to send requested items to.
 - Returns the target address.
 
-*setAddress(address:string)*
+*setAddress(address:string)*  
 This method sets the target address to send requested items to.
 - *address* is the string representing the new target address to send requested items to.
 
-*getConfiguration():string*
+*getConfiguration():string*  
 This method gets the current configuration.
 - Returns the current configuration as a string, either *allow_partial* or *strict*.
 
-*setConfiguration(config:string)*
+*setConfiguration(config:string)*  
 This method sets the current configuration.
 - *config* is the string representing the new configuration, either *allow_partial* or *strict*.
 
-*request()*
+*request()*  
 This method triggers a request to be sent.
 
-*setRequest(items:table)*
+*setRequest(items:table)*  
 This method sets the items to be requested.
 - *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{["id"] = "minecraft:dirt", ["Count"] = 1}*).
 
-*setCraftingRequest(count:number, items:table)*
+*setCraftingRequest(count:number, items:table)*  
 This method sets the items to be crafted.
 - *count* is a number representing the total amount of each item to craft.
 - *items* is a table representing the new to-be-requested items, either including an ID (*minecraft:dirt*) or another table containing both ID and count (*{["id"] = "minecraft:dirt", ["Count"] = 1}*).
 
-*getRequest():table*
+*getRequest():table*  
 This method gets the current request.
 - Returns the NBT of the current request as a table.

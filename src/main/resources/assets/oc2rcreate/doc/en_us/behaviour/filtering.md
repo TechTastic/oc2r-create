@@ -16,11 +16,11 @@ This is an example of how to access the device.
 Device name: *filtering*
 
 ### Methods
-*getFilter():ItemStack*
+*getFilter():ItemStack*  
 This method gets the current filter item.
 - Returns the item being filtered against.
 
-*setFilter([id: String[, count:number]])*
+*setFilter([id: String[, count:number]])*  
 This method sets the filter item.
 - *id* is a string representing the item ID of the new filter.
 - *count* is a number representing the item amount of the new filter. This is not used in most implementations.

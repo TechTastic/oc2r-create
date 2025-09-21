@@ -13,10 +13,10 @@ This is an example of how to access the device.
 Device name: *scroll_option*
 
 ### Methods
-*getScrollOption():string*
+*getScrollOption():string*  
 This method gets the current scroll option.
 - Returns the configured scroll option as a string.
 
-*setScrollValue(option:string)*
+*setScrollValue(option:string)*  
 This method sets the scroll option
 - *option* is a string representing the new scroll option. It is tested against the existing options.

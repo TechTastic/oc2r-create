@@ -13,18 +13,18 @@ This is an example of how to access the device.
 Device name: *frogport*
 
 ### Methods
-*getAddress():string*
+*getAddress():string*  
 This method retrieves the current address filter.
 - Returns the current address filter.
 
-*setAddress(address:string)*
+*setAddress(address:string)*  
 This method sets the current address filter.
 - *address* is the string representing the new address to filter packages against.
 
-*getConfiguration():string*
+*getConfiguration():string*  
 This method gets the current configuration.
 - Returns the current configuration as a string, either *send* or *send_receive*.
 
-*setConfiguration(config:string)*
+*setConfiguration(config:string)*  
 This method sets the current configuration.
 - *config* is the string representing the new configuration, either *send* or *send_receive*.

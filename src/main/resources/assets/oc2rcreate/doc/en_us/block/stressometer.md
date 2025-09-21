@@ -13,10 +13,10 @@ This is an example of how to access the device.
 Device name: *stressometer*
 
 ### Methods
-*getStress():number*
+*getStress():number*  
 This method gets the current network stress.
 - Returns the stress of the network.
 
-*getStressCapacity():number*
+*getStressCapacity():number*  
 This method gets the stress capacity of the network.
 - Returns the stress capacity of the network.

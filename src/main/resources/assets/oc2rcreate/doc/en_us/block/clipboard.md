@@ -13,10 +13,10 @@ This is an example of how to access the device.
 Device name: *clipboard*
 
 ### Methods
-*getClipboardEntries():table*
+*getClipboardEntries():table*  
 This method gets all clipboard entries index by pages and by entry.
 - Returns all clipboard entries.
 
-*setClipboardEntries(entires:table)*
+*setClipboardEntries(entires:table)*  
 This method sets all clipboard entries form the given table.
 - *entries* is a table representing a series of pages containing a series of clipboard entries.

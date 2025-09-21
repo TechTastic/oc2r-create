@@ -13,6 +13,6 @@ This is an example of how to access the device.
 Device name: *speedometer*
 
 ### Methods
-*getSpeed():number*
+*getSpeed():number*  
 This method gets the current speed.
 - Returns the speed of the shaft.

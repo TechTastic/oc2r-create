@@ -17,10 +17,10 @@ This is an example of how to access the device.
 Device name: *scroll_value*
 
 ### Methods
-*getScrollValue():number*
+*getScrollValue():number*  
 This method gets the current scroll value.
 - Returns the configured scroll value.
 
-*setScrollValue(value:number)*
+*setScrollValue(value:number)*  
 This method sets the scroll value
 - *value* is a number representing the new scroll value.

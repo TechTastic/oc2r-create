@@ -13,56 +13,56 @@ This is an example of how to access the device.
 Device name: *train_station*
 
 ### Methods
-*assemble()*
+*assemble()*  
 This method attempts to assemble the current train.
 
-*disassemble()*
+*disassemble()*  
 This method attempts to disassemble the present train.
 
-*setAssemblyMode(asssemblyMode:boolean)*
+*setAssemblyMode(asssemblyMode:boolean)*  
 This method attempts to enter/exit assembly mode
 - *assemblyMode* is a boolean representing whether to enter or exit assembly mode
 
-*isInAssemblyMode():boolean*
+*isInAssemblyMode():boolean*  
 This method determines if the Station is in assembly mode.
 - Returns whether the Station is in assembly mode.
 
-*getStationName():string*
+*getStationName():string*  
 This method gets the Station's name.
 - Returns the Station's name.
 
-*setStationName(name:string)*
+*setStationName(name:string)*  
 This method sets the Station's name.
 - *name* is a string representing the new name of the Station.
 
-*isTrainPresent():boolean*
+*isTrainPresent():boolean*  
 This method determines if a train is present at the Station.
 - Returns whether a train is present at the Station.
 
-*isTrainImminent():boolean*
+*isTrainImminent():boolean*  
 This method determines if a train is coming into the Station.
 - Returns whether a train is coming into the Station.
 
-*isTrainEnroute():boolean*
+*isTrainEnroute():boolean*  
 This method determines if a train is heading towards the Station.
 - Returns whether a train is en route to the Station.
 
-*getTrainName():string*
+*getTrainName():string*  
 This method gets the name of the train that is present.
 - Returns the present train's name.
 
-*setTrainName(name:string)*
+*setTrainName(name:string)*  
 This method sets the name of the train that is present
 - *name* is a string representing the present train's new name.
 
-*hasSchedule():boolean*
+*hasSchedule():boolean*  
 This method determines whether the present train has a schedule.
 - Returns whether the present train has a schedule.
 
-*getSchedule():table*
+*getSchedule():table*  
 This method gets the present train's schedule as a table.
 - Return the NBT of the present train's schedule.
 
-*setSchedule(schedule:table)*
+*setSchedule(schedule:table)*  
 This method sets the present train's schedule parsed from the given table.
 - *schedule* is a table representing the new schedule as an NBT tag
