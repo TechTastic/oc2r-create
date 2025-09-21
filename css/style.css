@@ -7,7 +7,26 @@
   font-family: 'Monocraft', monospace !important;
 }
 
-code {
-  background-color: black;
+code, pre, .highlight, .highlighter-rouge {
   font-size: 14px !important;
+}
+
+p code, li code {
+  font-size: 14px !important;
+}
+
+.highlight, .highlighter-rouge {
+  border: 1px solid #ddd !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  background-color: #f8f8f8 !important;
+  overflow-x: auto !important;
+}
+
+.highlight pre, .highlighter-rouge pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
 }
