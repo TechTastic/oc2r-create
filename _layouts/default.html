@@ -12,7 +12,7 @@
       <strong>Behaviours</strong>
       <ul>
         {% for page in site.html_pages %}
-          {% if page.url contains '/behaviour/'}
+          {% if page.url contains '/behaviour/' %}
             <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
           {% endif %}
         {% endfor %}
@@ -20,7 +20,7 @@
       <strong>Items</strong>
       <ul>
         {% for page in site.html_pages %}
-          {% if page.url contains '/item/'}
+          {% if page.url contains '/item/' %}
             <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
           {% endif %}
         {% endfor %}
@@ -28,7 +28,7 @@
       <strong>Blocks</strong>
       <ul>
         {% for page in site.html_pages %}
-          {% if page.url contains '/block/'}
+          {% if page.url contains '/block/' %}
             <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
           {% endif %}
         {% endfor %}
