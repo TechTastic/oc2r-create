@@ -86,10 +86,7 @@ jobs:
       - name: Convert inline code blocks
         run: |
           find . -name "*.md" -type f | while read -r file; do
-            echo "Processing inline code in $file..."
-            # Convert *text* to `text`
-            sed -i 's/\*\([^*]*\)\*/`\1`/g' "$file"
-            echo "Completed inline conversion for $file"
+            sed -i 's/\(^\|[^*]\)\*\([^*][^*]*[^*]\)\*\($\|[^*]\)/\1`\2`\3/g' "$file"
           done
       - name: Adding Jekyll Configuration
         run: |
