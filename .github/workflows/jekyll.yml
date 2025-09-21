@@ -90,8 +90,8 @@ jobs:
         run: |
           find . -name "*.md" -type f | while read -r file; do
             echo "Fixing method signatures in $file..."
-            # Add blank line after method signatures that end with ) followed immediately by capital letter
-            sed -i 's/`\([^`]*)\)` \([A-Z]\)/`\1`\n\n\2/g' "$file"
+            # Add line breaks after method signatures followed by descriptions
+            sed -i '/^[[:space:]]*[-*+]/!{/Device name:/!{s/`\([^`]*\)` \([A-Z]\)/`\1`\n\n\2/g}}' "$file"
             echo "Completed method signature fix for $file"
           done
       - name: Adding Jekyll Configuration
