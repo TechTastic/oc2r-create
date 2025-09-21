@@ -81,7 +81,26 @@ jobs:
       - name: Convert inline Lua code blocks
         run: |
           find . -name "*.md" -type f | while read -r file; do
-            sed -i 's/\*\([^*]*\)\*/`\1`/g' "$file"
+            echo "Fixing inline code formatting in $file..."
+            awk '
+            /`[^`]*`$/ {
+                # Skip bullet lists
+                if ($0 ~ /^[[:space:]]*[-*+][[:space:]]/) {
+                    print $0
+                }
+                # Skip "Device name:" and "- parameter:" lines  
+                else if ($0 ~ /^[[:space:]]*(Device name:|-.*):`/) {
+                    print $0
+                }
+                # Add trailing spaces for method signatures and standalone statements
+                else {
+                    print $0 "  "
+                }
+                next
+            }
+            { print $0 }
+            ' "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
+            echo "Completed formatting fix for $file"
           done
       - name: Adding Jekyll Configuration
         run: |
