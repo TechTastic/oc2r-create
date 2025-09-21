@@ -1,2 +1,7 @@
 title: "OC2R: Create"
 baseurl: "/oc2r-create"
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
