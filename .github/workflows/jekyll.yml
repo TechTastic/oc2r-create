@@ -6,8 +6,6 @@ on:
     workflows: ["publish"]
     types:
       -completed
-  push:
-    branches: ["gh-pages"]
 
 permissions:
   contents: read
