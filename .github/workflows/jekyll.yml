@@ -102,7 +102,7 @@ jobs:
             {
               echo "---"
               echo "layout: default"
-              echo "permalink: $permalink"
+            # echo "permalink: $permalink"
               echo "title: \"$title\""
               echo "---"
               echo ""
