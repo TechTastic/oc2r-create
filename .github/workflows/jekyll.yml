@@ -35,17 +35,68 @@ jobs:
           rsync -a src/main/resources/assets/oc2rcreate/doc/en_us/ ./. --remove-source-files
           cp -f ./create.md ./index.md
           rm ./create.md
-      - name: Add configuration to documents
+      - name: Convert big Lua code blocks
         run: |
-          find . -name "*.md" -exec base -c '
+          find . -name "*.md" -type f | while read -r file; do
+            temp_file="${file}.tmp"
+            
+            awk '
+            /^\*.*\*$/ { 
+                lines[NR] = $0
+                star_lines[NR] = 1
+            }
+            !/^\*.*\*$/ { 
+                lines[NR] = $0
+                star_lines[NR] = 0
+            }
+            
+            END {
+                in_block = 0
+                for (i = 1; i <= NR; i++) {
+                    if (star_lines[i] && (star_lines[i-1] || star_lines[i+1])) {
+                        if (!in_block) {
+                            print "```lua"
+                            in_block = 1
+                        }
+                        line = lines[i]
+                        gsub(/^\*/, "", line)
+                        gsub(/\*$/, "", line)
+                        print line
+                    } else {
+                        if (in_block) {
+                            print "```"
+                            in_block = 0
+                        }
+                        print lines[i]
+                    }
+                }
+                if (in_block) {
+                    print "```"
+                }
+            }
+            ' "$file" > "$temp_file"
+            
+            mv "$temp_file" "$file"
+          done
+      - name: Convert inline code blocks
+        run: |
+          find . -name "*.md" -type f | while read -r file; do
+            echo "Processing inline code in $file..."
+            # Convert *text* to `text`
+            sed -i 's/\*\([^*]*\)\*/`\1`/g' "$file"
+            echo "Completed inline conversion for $file"
+          done
+      - name: Adding Jekyll Configuration
+        run: |
+          find . -name "*.md" -exec bash -c '
             file="$1"
-            echo "Processing $file..."
           
-            title=$(grep -m 1 "^#[^#]" "file")
+            title=$(grep -m 1 "^#[^#]" "$file")
+            title="${title:2}"
           
             permalink="/${file#./}"
             permalink="${permalink%.md}"
-          
+            
             {
               echo "---"
               echo "layout: default"
