@@ -6,3 +6,32 @@
 * {
   font-family: 'Monocraft', monospace !important;
 }
+
+/* Target the main containers */
+.highlighter-rouge,
+.highlight,
+.language-lua,
+div[class*="language-"] {
+  font-family: 'Monocraft', 'Courier New', monospace !important;
+}
+
+/* Target the pre and code elements within */
+.highlighter-rouge pre,
+.highlighter-rouge code,
+.highlight pre,
+.highlight code {
+  font-family: 'Monocraft', 'Courier New', monospace !important;
+}
+
+/* Target all the token classes (the spans) */
+.highlight span,
+.highlighter-rouge span {
+  font-family: 'Monocraft', 'Courier New', monospace !important;
+}
+
+/* Catch-all for any Rouge-generated content */
+[class*="language-"] *,
+.highlight *,
+.highlighter-rouge * {
+  font-family: 'Monocraft', 'Courier New', monospace !important;
+}
