@@ -3,30 +3,37 @@
   src: url('/oc2r-create/fonts/Monocraft.ttf');
 }
 
-/* Reset and base styles */
 * {
-  margin: 0;
-  padding: 0;
+  font-family: 'Monocraft', monospace !important;
+}
+
+/* Main Content Area - restored original styling */
+section {
+  margin-left: 250px;
+  padding: 20px;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Monocraft', monospace !important;
-  margin: 0;
-  padding: 0;
+footer {
+  margin-left: 250px;
+  padding: 10px 20px;
+  text-align: center;
+  color: #666;
 }
 
-/* Sidebar */
+/* Side Nav Bar - improved version */
 #sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 300px;
+  width: 250px;
   background-color: #f5f5f5;
   border-right: 1px solid #ddd;
   padding: 20px;
   overflow-y: auto;
+  box-sizing: border-box;
   z-index: 1000;
 }
 
@@ -34,15 +41,16 @@ body {
   display: block;
   color: #333;
   text-decoration: none;
-  padding: 12px 0;
-  border-bottom: 2px solid #007acc;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
 }
 
 #sidebar > a:hover {
   color: #007acc;
+  background-color: #f0f0f0;
+  padding-left: 10px;
+  transition: all 0.2s ease;
 }
 
 #sidebar h4 {
@@ -51,10 +59,6 @@ body {
   font-size: 16px;
   border-bottom: 2px solid #007acc;
   padding-bottom: 5px;
-}
-
-#sidebar h4:first-of-type {
-  margin-top: 0;
 }
 
 #sidebar ul {
@@ -68,46 +72,20 @@ body {
 }
 
 #sidebar li a {
-  display: block;
-  padding: 8px 15px;
+  padding-left: 15px;
+  border-bottom: none;
   color: #666;
+  display: block;
+  padding: 8px 0 8px 15px;
   text-decoration: none;
-  border-radius: 4px;
-  margin-bottom: 2px;
   transition: all 0.2s ease;
 }
 
 #sidebar li a:hover {
-  color: #007acc;
-  background-color: #e6f3ff;
   padding-left: 20px;
 }
 
-/* Main content area */
-body {
-  margin-left: 300px;
-}
-
-main, section {
-  padding: 40px;
-  min-height: 100vh;
-  max-width: none;
-}
-
-/* If Jekyll uses main instead of section */
-main {
-  margin-left: 0;
-}
-
-/* Footer */
-footer {
-  padding: 20px;
-  text-align: center;
-  color: #666;
-  border-top: 1px solid #ddd;
-}
-
-/* Code blocks styling */
+/* Code Blocks - restored original styling */
 code, pre, .highlight, .highlighter-rouge {
   font-size: 14px !important;
 }
@@ -118,9 +96,9 @@ p code, li code {
 
 .highlight, .highlighter-rouge {
   border: 1px solid #ddd !important;
-  border-radius: 4px !important;
-  padding: 10px !important;
-  margin: 10px 0 !important;
+  border-radius: 1px !important;
+  padding: 3px !important;
+  margin: 3px 0 !important;
   background-color: #f8f8f8 !important;
   overflow-x: auto !important;
 }
@@ -132,8 +110,14 @@ p code, li code {
   border: none !important;
 }
 
-/* Dark mode */
+/* Dark Mode - restored original styling */
 @media (prefers-color-scheme: dark) {
+  .highlight, .highlighter-rouge {
+    background-color: #2d2d2d !important;
+    border: 1px solid #444 !important;
+    color: #f8f8f8 !important;
+  }
+
   body {
     background-color: #1a1a1a !important;
     color: #e0e0e0 !important;
@@ -146,11 +130,12 @@ p code, li code {
 
   #sidebar > a {
     color: #e0e0e0;
-    border-bottom: 2px solid #4da6ff;
+    border-bottom: 1px solid #444;
   }
 
   #sidebar > a:hover {
     color: #4da6ff;
+    background-color: #404040;
   }
 
   #sidebar h4 {
@@ -164,22 +149,14 @@ p code, li code {
 
   #sidebar li a:hover {
     color: #4da6ff;
-    background-color: #404040;
   }
 
   footer {
-    border-top: 1px solid #444;
     color: #bbb;
-  }
-
-  .highlight, .highlighter-rouge {
-    background-color: #2d2d2d !important;
-    border: 1px solid #444 !important;
-    color: #f8f8f8 !important;
   }
 }
 
-/* Mobile responsive */
+/* Responsive for Smaller Screens - improved mobile behavior */
 @media (max-width: 768px) {
   #sidebar {
     transform: translateX(-100%);
@@ -208,7 +185,7 @@ p code, li code {
     font-size: 18px;
   }
 
-  body {
+  section, footer {
     margin-left: 0;
   }
 
