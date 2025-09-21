@@ -6,3 +6,11 @@
 * {
   font-family: 'Monocraft', monospace !important;
 }
+
+code, pre, .highlight, .highlighter-rouge {
+  font-size: 14px !important;
+}
+
+p code, li code {
+  font-size: 14px !important;
+}
