@@ -1,0 +1,7 @@
+// assets/css/style.scss
+@import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
+@import "minima/initialize";
+
+// Your custom variables and styles go here or in other custom files
+@import "minima/custom-variables";
+@import "minima/custom-styles";
