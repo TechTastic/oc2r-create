@@ -22,7 +22,7 @@ body {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 250px;
+  width: 300px;
   background-color: #f5f5f5;
   border-right: 1px solid #ddd;
   padding: 20px;
@@ -85,14 +85,16 @@ body {
 
 /* Main content area */
 body {
-  margin-left: 250px;
+  margin-left: 300px;
 }
 
 main, section {
-  padding: 20px;
+  padding: 40px;
   min-height: 100vh;
+  max-width: none;
 }
 
+/* If Jekyll uses main instead of section */
 main {
   margin-left: 0;
 }
@@ -180,11 +182,30 @@ p code, li code {
 /* Mobile responsive */
 @media (max-width: 768px) {
   #sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+  }
+
+  #sidebar:hover {
+    transform: translateX(0);
+  }
+
+  #sidebar::before {
+    content: "☰";
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #007acc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 18px;
   }
 
   body {
@@ -192,8 +213,8 @@ p code, li code {
   }
 
   @media (prefers-color-scheme: dark) {
-    #sidebar {
-      border-bottom: 1px solid #444;
+    #sidebar::before {
+      background-color: #4da6ff;
     }
   }
 }
