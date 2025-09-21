@@ -3,24 +3,6 @@
   src: url('/oc2r-create/fonts/Monocraft.ttf');
 }
 
-/* Nuclear option - force everything */
-*, *::before, *::after {
-  font-family: 'Monocraft', 'Courier New', monospace !important;
-}
-
-/* Extra specific targeting for Rouge */
-.highlight, .highlight *,
-.highlighter-rouge, .highlighter-rouge *,
-pre, pre *, code, code *,
-div[class*="language-"], div[class*="language-"] *,
-span[class*="k"], span[class*="n"], span[class*="p"],
-span[class*="s"], span[class*="m"], span[class*="c"],
-.highlight .kd, .highlight .n, .highlight .p, .highlight .s2,
-.highlight .nb, .highlight .nf, .highlight .mi, .highlight .c1 {
-  font-family: 'Monocraft', 'Courier New', monospace !important;
-}
-
-/* Make sure inline styles can't override */
-[style*="font-family"] {
-  font-family: 'Monocraft', 'Courier New', monospace !important;
+* {
+  font-family: 'Monocraft', monospace !important;
 }
