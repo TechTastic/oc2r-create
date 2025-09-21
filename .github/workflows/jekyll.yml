@@ -81,26 +81,28 @@ jobs:
       - name: Convert inline Lua code blocks
         run: |
           find . -name "*.md" -type f | while read -r file; do
-            echo "Fixing inline code formatting in $file..."
             awk '
-            /`[^`]*`$/ {
+            {
+                line = $0
                 # Skip bullet lists
-                if ($0 ~ /^[[:space:]]*[-*+][[:space:]]/) {
-                    print $0
+                if (line ~ /^[[:space:]]*[-*+][[:space:]]/) {
+                    print line
                 }
-                # Skip "Device name:" and "- parameter:" lines  
-                else if ($0 ~ /^[[:space:]]*(Device name:|-.*):`/) {
-                    print $0
+                # Skip "Device name:" lines
+                else if (line ~ /^[[:space:]]*Device name:/) {
+                    print line
                 }
-                # Add trailing spaces for method signatures and standalone statements
+                # Process method signatures followed by descriptions
+                else if (line ~ /`[^`]*\([^)]*\)[^`]*`[[:space:]]+[A-Z]/) {
+                    # Split method signature from description
+                    gsub(/(`[^`]*\([^)]*\)[^`]*`)[[:space:]]+([A-Z].*)/, "\\1\n\n\\2", line)
+                    print line
+                }
                 else {
-                    print $0 "  "
+                    print line
                 }
-                next
             }
-            { print $0 }
             ' "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
-            echo "Completed formatting fix for $file"
           done
       - name: Adding Jekyll Configuration
         run: |
