@@ -111,6 +111,8 @@ jobs:
             mv "$file.tmp" "$file"
           ' _ {} \;
           find . -name "*.md" -exec sed -i 's/(\([^)]*\)\.md)/(\1)/g' {} \;
+      - name: Adding Rouge Syntax CSS
+        run: rougify style github > ./css/syntax.css
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
