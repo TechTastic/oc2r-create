@@ -9,7 +9,7 @@
   <body>
     <nav id="sidebar">
       <a href="{{ site.baseurl }}">Home</a>
-      <strong>Behaviours</strong>
+      <h4>Behaviours</h4>
       <ul>
         {% for page in site.html_pages %}
           {% if page.url contains '/behaviour/' %}
@@ -17,7 +17,7 @@
           {% endif %}
         {% endfor %}
       </ul>
-      <strong>Items</strong>
+      <h4>Items</h4>
       <ul>
         {% for page in site.html_pages %}
           {% if page.url contains '/item/' %}
@@ -25,7 +25,7 @@
           {% endif %}
         {% endfor %}
       </ul>
-      <strong>Blocks</strong>
+      <h4>Blocks</h4>
       <ul>
         {% for page in site.html_pages %}
           {% if page.url contains '/block/' %}

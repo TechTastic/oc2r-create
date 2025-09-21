@@ -7,6 +7,83 @@
   font-family: 'Monocraft', monospace !important;
 }
 
+/* Main Content Area */
+
+section {
+  margin-left: 250px;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+footer {
+  margin-left: 250px;
+  padding: 10px 20px;
+  text-align: center;
+  color: #666;
+}
+
+/* Side Nav Bar */
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#sidebar a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
+}
+
+#sidebar a:hover {
+  color: #007acc;
+  background-color: #f0f0f0;
+  padding-left: 10px;
+  transition: all 0.2s ease;
+}
+
+#sidebar h4 {
+  margin: 20px 0 10px 0;
+  color: #555;
+  font-size: 16px;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 5px;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+#sidebar li {
+  margin: 0;
+}
+
+#sidebar li a {
+  padding-left: 15px;
+  border-bottom: none;
+  color: #666;
+}
+
+#sidebar li a:hover {
+  padding-left: 20px;
+}
+
+/* Code Blocks */
+
 code, pre, .highlight, .highlighter-rouge {
   font-size: 14px !important;
 }
@@ -24,6 +101,15 @@ p code, li code {
   overflow-x: auto !important;
 }
 
+.highlight pre, .highlighter-rouge pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Dark Mode */
+
 @media (prefers-color-scheme: dark) {
   .highlight, .highlighter-rouge {
     background-color: #2d2d2d !important;
@@ -35,11 +121,50 @@ p code, li code {
     background-color: #1a1a1a !important;
     color: #e0e0e0 !important;
   }
+
+  #sidebar {
+    background-color: #2d2d2d;
+    border-right: 1px solid #444;
+  }
+
+  #sidebar a {
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+  }
+
+  #sidebar a:hover {
+    color: #4da6ff;
+    background-color: #404040;
+  }
+
+  #sidebar h4 {
+    color: #ccc;
+    border-bottom: 2px solid #4da6ff;
+  }
+
+  #sidebar li a {
+    color: #bbb;
+  }
 }
 
-.highlight pre, .highlighter-rouge pre {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
+/* Responsive for Smaller Screens */
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  section, footer {
+    margin-left: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #sidebar {
+      border-bottom: 1px solid #444;
+    }
+  }
 }
