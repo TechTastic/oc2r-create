@@ -12,6 +12,13 @@ This is an example of how to access the device.
 Device name: *stock_ticker*
 
 ### Methods
+*getAllStacks():table*
+This method gets all items available to the Stock Ticker network.
+
+*getCountOf(id:string):number*
+This method gets the count of the specified item ID in the Stock Ticker network.
+- *id* is a string representing the item ID of the item to search for.
+
 *requestFiltered(address:string, filters:table):number*  
 This method requests items matching the filters to be sent to the given address.
 - *address* is a string representing the address to deliver the requested items to.

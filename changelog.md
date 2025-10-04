@@ -1,2 +1,2 @@
 # Changes
-- Updated missing documentation
+- Added `getAllStacks` and `getCountOf` to the Stock Ticker device

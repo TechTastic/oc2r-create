@@ -12,11 +12,13 @@ import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class StockTickerDevice extends AbstractBlockRPCDevice implements DocumentedDevice {
     private final StockTickerBlockEntity ticker;
@@ -24,6 +26,18 @@ public class StockTickerDevice extends AbstractBlockRPCDevice implements Documen
     public StockTickerDevice(StockTickerBlockEntity ticker) {
         super("stock_ticker");
         this.ticker = ticker;
+    }
+
+    @Callback
+    public final List<BigItemStack> getAllStacks() {
+        return this.ticker.getAccurateSummary().getStacks();
+    }
+
+    @Callback
+    public final int getCountOf(@Parameter("id") String id) {
+        return this.ticker.getAccurateSummary().getCountOf(
+                Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(id))).getDefaultInstance()
+        );
     }
 
     @Callback
@@ -78,6 +92,10 @@ public class StockTickerDevice extends AbstractBlockRPCDevice implements Documen
 
     @Override
     public void getDeviceDocumentation(@NotNull DeviceVisitor deviceVisitor) {
+        deviceVisitor.visitCallback("getAllStacks")
+                .description("Gets all current stacks for the Stock Ticker network");
+        deviceVisitor.visitCallback("getCountOf")
+                .description("Attempts to get the count of the specified item ID");
         deviceVisitor.visitCallback("requestFiltered")
                 .description("Trigger a reguest for items based upon the provided filters");
     }
