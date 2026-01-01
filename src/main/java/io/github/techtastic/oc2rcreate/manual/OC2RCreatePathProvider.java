@@ -5,8 +5,11 @@ import li.cil.manual.api.ManualModel;
 import li.cil.manual.api.prefab.provider.NamespacePathProvider;
 import li.cil.manual.api.util.MatchResult;
 import li.cil.oc2.client.manual.Manuals;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
+@OnlyIn(Dist.CLIENT)
 public class OC2RCreatePathProvider extends NamespacePathProvider {
     public OC2RCreatePathProvider() {
         super(OC2RCreate.MODID, false);

@@ -7,8 +7,11 @@ import li.cil.manual.api.util.MatchResult;
 import li.cil.oc2.client.manual.Manuals;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
+@OnlyIn(Dist.CLIENT)
 public class OC2RCreateTab extends AbstractTab {
     public OC2RCreateTab() {
         super(ManualModel.LANGUAGE_KEY + "/create.md", Component.translatable("oc2rcreate.manual.tab"));
