@@ -9,10 +9,12 @@ import io.github.techtastic.oc2rcreate.device.item.redstone_link.RedstoneLinkDev
 import io.github.techtastic.oc2rcreate.util.OC2RCoreHandler;
 import li.cil.oc2.common.item.ItemGroup;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -42,7 +44,7 @@ public class OC2RCreate {
         ItemDeviceProviders.register(modEventBus);
 
         DisplaySources.register(modEventBus);
-        Manuals.register(modEventBus);
+        DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> () -> Manuals.register(modEventBus));
     }
 
     private void addToTabs(BuildCreativeModeTabContentsEvent event) {
